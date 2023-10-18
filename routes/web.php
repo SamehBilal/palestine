@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Livewire\Volt\Volt;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome');
+
+Volt::route('live-tracker', 'pages.live.index')
+        ->name('live');
+
+        Volt::route('map', 'pages.map.index')
+        ->name('map');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
