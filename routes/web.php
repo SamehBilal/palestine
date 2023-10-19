@@ -14,7 +14,7 @@ use Livewire\Volt\Volt;
 |
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'landing')->name('index');
 
 Volt::route('live-tracker', 'pages.live.index')
         ->name('live');

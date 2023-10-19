@@ -27,6 +27,9 @@ const makeSelectOption = async (select, selectedCountry) => {
     wwOptionDom.dataset.image = location.join('/') + '/assets/img/global.png';
     wwOptionDom.selected = true;
     select.insertBefore(wwOptionDom, select.childNodes[0]);
+    /* let countries = {
+
+    } */
 
     countries.map((country) => {
         let optionDom = document.createElement('option');
@@ -64,6 +67,47 @@ const makeSelectOption = async (select, selectedCountry) => {
         templateResult: formatState
     });
 };
+
+let findSelect = document.querySelector('select[name=country]');
+
+jQuery(findSelect).select2({
+    templateSelection: formatState,
+    templateResult: formatState
+});
+
+function formatState(opt) {
+    if (!opt.id) {
+        return opt.text;
+    }
+
+    let optimage = jQuery(opt.element).attr('data-image');
+    if (!optimage) {
+        return opt.text;
+    } else {
+        let $opt = jQuery(
+            `<span><img src=${optimage} class='img-flag' />${opt.text}</span>`
+        );
+        return $opt;
+    }
+};
+
+
+/* function formatState (opt) {
+    if (!opt.id) {
+        return opt.text.toUpperCase();
+    }
+
+    var optimage = $(opt.element).attr('data-image');
+    console.log(optimage)
+    if(!optimage){
+       return opt.text.toUpperCase();
+    } else {
+        var $opt = $(
+           '<span><img src="' + optimage + '" width="60px" /> ' + opt.text.toUpperCase() + '</span>'
+        );
+        return $opt;
+    }
+}; */
 
 
 /**
@@ -264,6 +308,12 @@ const reportListView = async (selectorID, search) => {
         "searching": !!search
     });
 }
+
+let table = document.querySelector('table');
+
+jQuery(table).DataTable({
+    /* "searching": !!'gaza' */
+});
 
 /**
  * Function for Map Tracker
@@ -471,24 +521,74 @@ const mapReport = (selector, countryName = 'USA') => {
 
 const chartReport = async (selectorId) => {
     const selectMenu = selectorId.querySelector("select");
-    const countries = await getData(BASE_URL + 'v2/countries/');
+    /* const countries = await getData(BASE_URL + 'v2/countries/'); */
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     // Make Select option Dropdown Menu
-    countries.map((country) => {
+    /* countries.map((country) => {
         let optionDom = document.createElement('option');
         optionDom.value = country.countryInfo.iso2;
         optionDom.classList.add(country.countryInfo.iso2);
         optionDom.text = country.country;
         selectMenu.append(optionDom);
-    });
+    }); */
 
     function chartData(data) {
         let reports = [];
         let labels = [];
         let dates = [];
 
-        data.map((item, index) => {
+        reports.push(600);
+        reports.push(500);
+        reports.push(700);
+        reports.push(800);
+        reports.push(900);
+        reports.push(1001);
+        reports.push(1002);
+        reports.push(1002);
+        reports.push(1003);
+        reports.push(1004);
+        reports.push(1005);
+        reports.push(1006);
+        reports.push(1007);
+        reports.push(1008);
+        reports.push(2200);
+        reports.push(10032);
+        labels.push(`Day 1`);
+        labels.push(`Day 2`);
+        labels.push(`Day 3`);
+        labels.push(`Day 4`);
+        labels.push(`Day 5`);
+        labels.push(`Day 6`);
+        labels.push(`Day 7`);
+        labels.push(`Day 8`);
+        labels.push(`Day 9`);
+        labels.push(`Day 10`);
+        labels.push(`Day 11`);
+        labels.push(`Day 12`);
+        labels.push(`Day 13`);
+        labels.push(`Day 14`);
+        labels.push(`Day 15`);
+        labels.push(`Day 16`);
+        labels.push(`Day 17`);
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+        dates.push(new Date());
+
+        /* data.map((item, index) => {
             const value = item.Confirmed - data[index > 0 ? (index - 1) : 0].Confirmed;
             reports.push(value < 0 ? data[index - 1] : value);
             labels.push(`Day ${index + 1}`);
@@ -497,7 +597,7 @@ const chartReport = async (selectorId) => {
             const month = d.getMonth();
             const dateUSFormat = `${months[month]} ${day}`;
             dates.push(dateUSFormat);
-        })
+        }) */
 
         const config = {
             type: 'line',
@@ -569,32 +669,32 @@ const chartReport = async (selectorId) => {
         window.myLine = new Chart(ctx, config);
     }
 
-    const data = await getData('https://api.covid19api.com/total/dayone/country/' + selectMenu.options[selectMenu.selectedIndex].value);
-    chartData(data);
-    jQuery(selectMenu).on('change', async function () {
+    //const data = await getData('https://api.covid19api.com/total/dayone/country/' + selectMenu.options[selectMenu.selectedIndex].value);
+    chartData('chart-canvas');
+    /* jQuery(selectMenu).on('change', async function () {
         const data = await getData('https://api.covid19api.com/total/dayone/country/' + selectMenu.options[selectMenu.selectedIndex].value);
         chartData(data);
-    })
+    }) */
 }
 /**
  * Function For Today's Activities
  * @returns {Promise<void>}
  */
 const worldwidrWithPieChart = async () => {
-    const data = await getData(BASE_URL + 'v2/all');
-    const deathRate = (data.deaths * 100) / data.cases;
-    const recoveredRate = (data.recovered * 100) / data.cases;
-    const activeCasesRate = (data.active * 100) / data.cases;
+    //const data = await getData(BASE_URL + 'v2/all');
+    const deathRate = (5200 * 100) / 5552;
+    const recoveredRate = (3000 * 100) / 5552;
+    const activeCasesRate = (1500 * 100) / 5552;
     const percents = [{
-            title: "Active Cases Rate",
+            title: "Total Deaths",
             value: activeCasesRate
         },
         {
-            title: "Recovered Rate",
+            title: "Women",
             value: recoveredRate
         },
         {
-            title: "Deaths Rate",
+            title: "Children",
             value: deathRate
         }
     ];
@@ -611,18 +711,18 @@ const worldwidrWithPieChart = async () => {
 
 /**
  * Function for mapStatus Report
- * @param {*} selectorID 
+ * @param {*} selectorID
  */
 
 const mapStatus = async function (selectorID) {
-    const countriesData = await getData(BASE_URL + 'v2/countries');
+    //const countriesData = await getData(BASE_URL + 'v2/countries');
     const map = selectorID.querySelector('#map-status');
     const mostCases = "#006491";
     const mediumCases = "#4A97B9";
     const minCases = "#ACCDDC";
     const mapColors = {};
 
-    countriesData.map(async (country) => {
+    /* countriesData.map(async (country) => {
         if (country.countryInfo.iso2) {
             const countryCode = country.countryInfo.iso2.toLowerCase();
             if (country.cases >= 0 && country.cases <= 50000) {
@@ -633,7 +733,7 @@ const mapStatus = async function (selectorID) {
                 mapColors[countryCode] = mostCases;
             }
         }
-    })
+    }) */
 
     jQuery(map).vectorMap({
         map: 'world_en',
@@ -649,24 +749,194 @@ const mapStatus = async function (selectorID) {
         selectedColor: null,
         selectedRegions: null,
         showTooltip: true,
-        colors: mapColors,
-        onLabelShow: async function (event, label, code) {
-            const cdata = await getData(BASE_URL + `v2/countries/${code}`);
-            const ddd = `${cdata.country}: ${cdata.cases}`;
+        colors: {
+            ru: '#F04946',
+            ca: '#55bfbf',
+            us: '#0e7272',
+            mx: '#f14946',
+            br: '#9aa44b',
+            ar: '#55bfbf',
+            pe: '#55bfbf',
+            cl: '#f14946',
+            ec: '#8363a4',
+            co: '#0e7272',
+            ve: '#f14946',
+            gl: '#53ba9c',
+            is: '#8562a4',
+            gt: '#0e7272',
+            bz: '#e8ebbe',
+            sv: '#df9858',
+            hn: '#7a5e91',
+            ni: '#53ba9c',
+            cr: '#0e7272',
+            pa: '#9aa44e',
+            cu: '#ecc3c1',
+            bs: '#bed199',
+            ht: '#e9d6ae',
+            do: '#bed295',
+            gy: '#f2972c',
+            sr: '#0e7272',
+            gf: '#8562a4',
+            bo: '#f2972c',
+            py: '#f14946',
+            uy: '#f2972c',
+            fk: '#3e8a8a',
+            no: '#f2972c',
+            se: '#0e7272',
+            fi: '#8562a4',
+            ee: '#9aa549',
+            lv: '#8562a4',
+            lt: '#1b6c6d',
+            by: '#f2972c',
+            ua: '#cf5bc8',
+            pl: '#53ba9c',
+            de: '#f14946',
+            fr: '#8562a4',
+            gb: '#f14946',
+            ie: '#f2972c',
+            es: '#bf4250',
+            pt: '#9aa44b',
+            ma: '#53ba9c',
+            mr: '#f14946',
+            dz: '#9aa44b',
+            ml: '#53ba9c',
+            ne: '#0e7270',
+            ng: '#53ba9c',
+            gh: '#f14946',
+            bf: '#f2972c',
+            sn: '#f2972c',
+            gm: '#346649',
+            gw: '#f14946',
+            gn: '#0c7372',
+            sl: '#f14948',
+            lr: '#bf4250',
+            ci: '#8562a4',
+            tg: '#0e7272',
+            bj: '#8562a4',
+            cm: '#0e7272',
+            ga: '#f2972c',
+            gq: '#5c9d7d',
+            cg: '#55bfbf',
+            cd: '#f2972c',
+            ao: '#0e7272',
+            na: '#9aa44b',
+            za: '#f14946',
+            ls: '#9aa549',
+            bw: '#cf5bc8',
+            zm: '#bf4250',
+            zw: '#55bfbf',
+            mz: '#8562a4',
+            mg: '#0e7272',
+            sz: '#86923e',
+            tz: '#55bfbf',
+            mw: '#9aa44b',
+            ke: '#f14a44',
+            ug: '#0e7272',
+            rw: '#98a54d',
+            bi: '#85679b',
+            so: '#9aa44d',
+            et: '#0e7272',
+            sd: '#9aa44b',
+            ly: '#53ba9c',
+            cf: '#8562a4',
+            eg: '#0e7274',
+            er: '#f2972c',
+            td: '#f14946',
+            tn: '#f2972c',
+            it: '#f3982d',
+            nl: '#f3982d',
+            be: '#127072',
+            dk: '#ffa944',
+            mt: '#c6c78e',
+            cz: '#0e7272',
+            at: '#9aa44b',
+            sk: '#e9993a',
+            hu: '#8562a4',
+            ch: '#0e7272',
+            si: '#54bfa5',
+            hr: '#53ba9c',
+            ro: '#9aa44b',
+            ba: '#0f7172',
+            rs: '#f14946',
+            bg: '#8562a2',
+            mk: '#f2972c',
+            al: '#bf4250',
+            gr: '#0e7270',
+            tr: '#f2972c',
+            cy: '#bfd398',
+            sy: '#b2fce3',
+            iq: '#8562a4',
+            il: '#e84d48',
+            jo: '#53ba9c',
+            lb: '#157071',
+            sa: '#9aa44b',
+            ye: '#8562a4',
+            om: '#f2972c',
+            ae: '#0e7272',
+            qa: '#d15756',
+            kw: '#c8dead',
+            ir: '#55bfbf',
+            am: '#9aa44b',
+            az: '#53ba9c',
+            kz: '#f3962c',
+            uz: '#0e7272',
+            ge: '#b1fde3',
+            tm: '#f14946',
+            af: '#8562a4',
+            pk: '#f14946',
+            in: '#f2972c',
+            lk: '#9ba157',
+            np: '#8562a4',
+            bd: '#1e7013',
+            la: '#53ba9c',
+            th: '#ef4a46',
+            bt: '#0a7273',
+            mm: '#0e7272',
+            vn: '#f2972c',
+            kh: '#9aa44b',
+            my: '#0c7372',
+            id: '#55bfbf',
+            au: '#f2972c',
+            pg: '#f2972c',
+            sb: '#dd524d',
+            nc: '#117072',
+            nz: '#f14946',
+            ph: '#f2972c',
+            jp: '#0e7274',
+            kp: '#0e7272',
+            kr: '#bf4250',
+            tw: '#f14946',
+            mn: '#0e7272',
+            pf: '#EF0435',
+            kg: '#FF0000',
+            vu: '#5cb69a',
+            tj: '#CC0000',
+            jm: '#8d9075',
+            md: '#f2972c',
+            cn: '#52BA9A'
+        },
+        /* colors: mapColors, */
+        /* onLabelShow: async function (event, label, code) {
+            //const cdata = await getData(BASE_URL + `v2/countries/${code}`);
+            //const ddd = `${cdata.country}: ${cdata.cases}`;
+            const ddd = `Egypt: 500`;
             if (label.length) {
                 label[0].innerText = ddd;
             } else {
                 event.preventDefault();
             }
-        },
+        }, */
+        /* onRegionTipShow: function(e, el, code){
+            el.html(el.html()+' (GDP - '+gdpData[code]+')');
+          } */
     });
 }
 
 
 /**
  * Function for Monthly Chart
- * @param {*} canvas 
- * @param {*} data 
+ * @param {*} canvas
+ * @param {*} data
  */
 
 const monthlyChart = (canvas, data) => {

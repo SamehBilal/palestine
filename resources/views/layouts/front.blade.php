@@ -35,20 +35,20 @@
     <![endif]-->
 </head>
 
-<body class="body-dark">
+<body class="body-dark" style="height:100vh!Important;">
     <!--== Start Header Wrapper ==-->
     <header class="header-wrapper">
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-lg-4">
                     <div class="logo-wrap">
-                        <a href="{{ url('/') }}" wire:navigate><img src="{{ asset('assets/img/logo.png') }}" alt="logo" /></a>
+                        <a href="{{ route('live') }}" {{-- wire:navigate --}}><img src="{{ asset('assets/img/logo2.png') }}" alt="logo" /></a>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-lg-4">
                     <div class="last-update-wrap">
-                        <p class="mb-0">Update: <span class="last-update"></span></p>
+                        <p class="mb-0">Update: <span class="last-update">{{ now()->format('Y-m-d G:i A') }}</span> <img src="{{ asset('assets/img/live.gif') }}" alt="" height="40px" ></p>
                     </div>
                 </div>
 
@@ -56,8 +56,8 @@
                     <div class="navbar-wrap">
                         <nav class="menubar">
                             <ul class="nav">
-                                <li><a href="{{ route('live') }}" wire:navigate>Dashboard</a></li>
-                                <li><a href="{{ route('map') }}" wire:navigate>Map</a></li>
+                                <li><a href="{{ route('live') }}" {{-- wire:navigate --}}>Dashboard</a></li>
+                                <li><a href="{{ route('map') }}" {{-- wire:navigate --}}>Map</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -68,7 +68,7 @@
     <!--== End Header Wrapper ==-->
 
     <!--== Start Main Content Wrapper ==-->
-    <main class="main-content-wrapper">
+    <main class="main-content-wrapper" >
         {{ $slot }}
     </main>
     <!--== End Main Content Wrapper ==-->
