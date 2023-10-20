@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('landing/css/style2.css') }}" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
 		<!--[if lt IE 10]>
 				<link rel="stylesheet" type="text/css" href="{{ asset('landing/css/style2IE.css') }}" />
