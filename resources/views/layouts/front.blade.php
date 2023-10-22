@@ -57,7 +57,7 @@
                         <nav class="menubar">
                             <ul class="nav">
                                 <li><a href="{{ route('live') }}" {{-- wire:navigate --}}>Dashboard</a></li>
-                                <li><a href="{{ route('map') }}" {{-- wire:navigate --}}>Map</a></li>
+                                <li><a href="{{ route('map') }}" {{-- wire:navigate --}}>Original Map</a></li>
                             </ul>
                         </nav>
                     </div>
