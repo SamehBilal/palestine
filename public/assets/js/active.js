@@ -1,4 +1,4 @@
-/* 
+/*
  ** Get Last Update Date Activation
  */
 
@@ -9,7 +9,7 @@ if (updateDate) {
     });
 }
 
-/* 
+/*
  ** Worldwide Statistics Activation
  */
 
@@ -20,7 +20,7 @@ if (worldwide) {
     });
 }
 
-/* 
+/*
  ** Countrywise Statistics Activation
  */
 
@@ -30,7 +30,7 @@ if (countrywise) {
 }
 
 
-/* 
+/*
  ** Statistics with Country Choose Dropdown Activation
  */
 
@@ -39,7 +39,7 @@ if (countryChoose) {
     reportWithDropdown(countryChoose, 'world');
 }
 
-/* 
+/*
  ** Map Statistics Report
  */
 
@@ -98,3 +98,6 @@ if (mapReports) {
  */
 
 miniChart();
+
+
+
