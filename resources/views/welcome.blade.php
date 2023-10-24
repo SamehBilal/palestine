@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Palestine</title>
+        <title>{{ __('content.Palestine') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -287,7 +287,7 @@
         <img class="pyramid" src="{{ asset('assets/images/palestine.jpg') }}" alt="Egypt pyramid" />
         <img class="left-rock" src="https://res.cloudinary.com/henryzarza/image/upload/v1601143960/General%20assets/left-rock_esxqua.png" alt="Left Rock" id="left-rock" />
         <img class="right-rock" src="https://res.cloudinary.com/henryzarza/image/upload/v1601143960/General%20assets/right-rock_aw8bfo.png" alt="Right Rock" id="right-rock" />
-        <h1 class="title" id="title">Palestine</h1>
+        <h1 class="title" id="title">{{ __('content.Palestine') }}</h1>
       </section>
       <section class="introduction">
         <div class="content">

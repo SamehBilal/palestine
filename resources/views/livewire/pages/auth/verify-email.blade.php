@@ -29,7 +29,7 @@ new #[Layout('layouts.guest')] class extends Component
         session()->invalidate();
         session()->regenerateToken();
 
-        $this->redirect('/', navigate: true);
+        $this->redirect('/'.app()->getLocale(), navigate: true);
     }
 }; ?>
 

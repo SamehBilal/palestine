@@ -14,20 +14,31 @@ use Livewire\Volt\Volt;
 |
 */
 
-Route::view('/', 'landing')->name('index');
+Route::get('/', function () {
+    return redirect(app()->getLocale());
+});
 
-Volt::route('live-tracker', 'pages.live.index')
-        ->name('live');
+Route::prefix('{locale}')
+    ->where(['locale' => '[a-zA-Z]{2}'])
+    ->middleware('setlocale')
+    ->group(function () {
 
-        Volt::route('map', 'pages.map.index')
-        ->name('map');
+    Route::view('/', 'landing')->name('index');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    Volt::route('live-tracker', 'pages.live.index')
+            ->name('live');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+            Volt::route('map', 'pages.map.index')
+            ->name('map');
 
-require __DIR__.'/auth.php';
+    Route::view('dashboard', 'dashboard')
+        ->middleware(['auth', 'verified'])
+        ->name('dashboard');
+
+    Route::view('profile', 'profile')
+        ->middleware(['auth'])
+        ->name('profile');
+
+    require __DIR__.'/auth.php';
+});
+

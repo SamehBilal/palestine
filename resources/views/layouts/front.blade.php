@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Palestine</title>
+    <title>{{ __('content.Palestine') }}</title>
 
     <!--== Favicon ==-->
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon" />
@@ -56,8 +56,9 @@
                     <div class="navbar-wrap">
                         <nav class="menubar">
                             <ul class="nav">
-                                <li><a href="{{ route('live') }}" {{-- wire:navigate --}}>Dashboard</a></li>
-                                <li><a href="{{ route('map') }}" {{-- wire:navigate --}}>Original Map</a></li>
+                                <li><a href="{{ route('live') }}" {{-- wire:navigate --}}>{{ __('content.Live Tracker') }}</a></li>
+                                <li><a href="{{ route('map') }}" {{-- wire:navigate --}}>{{ __('content.Original Map') }}</a></li>
+                                <x-front.languages-navigation />
                             </ul>
                         </nav>
                     </div>
@@ -105,115 +106,150 @@
     <script>
         var regions=[
             {
-                "region_name": "Jaffa",
+                "region_name": "{{ __('content.Jaffa') }}",
                 "region_code": "PS-JFA",
-                "population": 9794525
+                "deaths": 9794525
             },
             {
-                "region_name": "Nazaeth",
+                "region_name": "{{ __('content.Nazaeth') }}",
                 "region_code": "PS-NAZ",
-                "population": 5769750
+                "deaths": 5769750
             },
             {
-                "region_name": "Nablus",
+                "region_name": "{{ __('content.Nablus') }}",
                 "region_code": "PS-NBS",
-                "population": 5557276
+                "deaths": 5557276
             },
             {
-                "region_name": "Ramallah",
+                "region_name": "{{ __('content.Ramallah') }}",
                 "region_code": "PS-RBH",
-                "population": 4999932
+                "deaths": 4999932
             },
             {
-                "region_name": "Dead Sea",
+                "region_name": "{{ __('content.Dead Sea') }}",
                 "region_code": "PS-DS",
-                "population": 0
+                "deaths": 0
             },
             {
-                "region_name": "Allyd",
+                "region_name": "{{ __('content.Allyd') }}",
                 "region_code": "PS-ALD",
-                "population": 4881756
+                "deaths": 4881756
             },
             {
-                "region_name": "Safad",
+                "region_name": "{{ __('content.Safad') }}",
                 "region_code": "PS-SAF",
-                "population": 4881756
+                "deaths": 4881756
             },
             {
-                "region_name": "Jenin",
+                "region_name": "{{ __('content.Jenin') }}",
                 "region_code": "PS-JEN",
-                "population": 4377487
+                "deaths": 4377487
             },
             {
-                "region_name": "Bethlehem",
+                "region_name": "{{ __('content.Bethlehem') }}",
                 "region_code": "PS-BTH",
-                "population": 4374052
+                "deaths": 4374052
             },
             {
-                "region_name": "Acre",
+                "region_name": "{{ __('content.Acre') }}",
                 "region_code": "PS-ACE",
-                "population": 4050803
+                "deaths": 4050803
             },
             {
-                "region_name": "Tulkarm",
+                "region_name": "{{ __('content.Tulkarm') }}",
                 "region_code": "PS-TKM",
-                "population": 3692828
+                "deaths": 3692828
             },
             {
-                "region_name": "Baysan",
+                "region_name": "{{ __('content.Baysan') }}",
                 "region_code": "PS-BSN",
-                "population": 1958238
+                "deaths": 1958238
             },
             {
-                "region_name": "Tiberias",
+                "region_name": "{{ __('content.Tiberias') }}",
                 "region_code": "PS-TBA",
-                "population": 1640379
+                "deaths": 1640379
             },
             {
-                "region_name": "Lake Tiberias",
+                "region_name": "{{ __('content.Lake Tiberias') }}",
                 "region_code": "PS-LTB",
-                "population": 0
+                "deaths": 0
             },
             {
-                "region_name": "Hebron",
+                "region_name": "{{ __('content.Hebron') }}",
                 "region_code": "PS-HBN",
-                "population": 1565127
+                "deaths": 1565127
             },
             {
-                "region_name": "Beersheba",
+                "region_name": "{{ __('content.Beersheba') }}",
                 "region_code": "PS-BSB",
-                "population": 1545155
+                "deaths": 1545155
             },
             {
-                "region_name": "Khan Yunis",
+                "region_name": "{{ __('content.Khan Yunis') }}",
                 "region_code": "PS-KYS",
-                "population": 1312507
+                "deaths": 1312507
             },
             {
-                "region_name": "Alramlah",
+                "region_name": "{{ __('content.Alramlah') }}",
                 "region_code": "PS-ALR",
-                "population": 1221860
+                "deaths": 1221860
             },
             {
-                "region_name": "Gaza",
+                "region_name": "{{ __('content.Gaza') }}",
                 "region_code": "PS-GZA",
-                "population": 1039934
+                "deaths": 1039934
             },
             {
-                "region_name": "Haifa",
+                "region_name": "{{ __('content.Haifa') }}",
                 "region_code": "PS-HFA",
-                "population": 886239
+                "deaths": 886239
             },
             {
-                "region_name": "Jerusalem",
+                "region_name": "{{ __('content.Jerusalem') }}",
                 "region_code": "PS-JEM",
-                "population": 886239
+                "deaths": 886239
+            },
+            {
+                "region_name": "{{ __('content.Jericho') }}",
+                "region_code": "PS-JRH",
+                "deaths": 886239
+            },
+            {
+                "region_name": "{{ __('content.Salfit') }}",
+                "region_code": "PS-SLT",
+                "deaths": 886239
+            },
+            {
+                "region_name": "{{ __('content.Tubas') }}",
+                "region_code": "PS-TBS",
+                "deaths": 886239
+            },
+            {
+                "region_name": "{{ __('content.Qalqilya') }}",
+                "region_code": "PS-QQA",
+                "deaths": 886239
+            },
+            {
+                "region_name": "{{ __('content.Deir El Balah') }}",
+                "region_code": "PS-DEB",
+                "deaths": 886239
+            },
+            {
+                "region_name": "{{ __('content.North Gaza') }}",
+                "region_code": "PS-NGZ",
+                "deaths": 886239
+            },
+            {
+                "region_name": "{{ __('content.Rafah') }}",
+                "region_code": "PS-RFH",
+                "deaths": 886239
             },
         ];
 
 
         var temp_array= regions.map(function(item){
-            return item.population;
+            return item.deaths;
         });
         var highest_value = Math.max.apply(Math, temp_array);
 
@@ -222,7 +258,7 @@
             for(i = 0; i < regions.length; i++) {
 
                 $('#'+ regions[i].region_code)
-                .css({'fill': 'rgba(11, 104, 170,' + regions[i].population/highest_value +')'})
+                .css({'fill': 'rgba(11, 104, 170,' + regions[i].deaths/highest_value +')'})
                 .data('region', regions[i]);
             }
 
@@ -230,7 +266,7 @@
                 var region_data=$(this).data('region');
                 $('<div class="info_panel">'+
                     region_data.region_name + '<br>' +
-                    'Population: ' + region_data.population.toLocaleString("en-UK") +
+                    '{{ __("content.Deaths") }}: ' + region_data.deaths.toLocaleString("en-UK") +
                     '</div>'
                 )
                 .appendTo('body');
@@ -250,8 +286,9 @@
 
         });
     </script>
-
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="samehbilal" data-description="Support me on Buy me a coffee!" data-message="Help keep this website running! 🙏" data-color="#FFAD5B" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
     <!-- endbuild -->
+    {{-- <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="samehbilal" data-color="#FFDD00" data-emoji="🙏"  data-font="Cookie" data-text="help keep this website!" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script> --}}
 </body>
 
 </html>

@@ -85,6 +85,23 @@ return [
 
     'locale' => 'en',
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Available Locales Configuration
+    |--------------------------------------------------------------------------
+    |
+    | The application available locales determines all the locales that will be used
+    | by the translation service provider.
+    |
+    */
+
+    'available_locales' => [
+        'en',
+        'ar',
+        'fr'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
