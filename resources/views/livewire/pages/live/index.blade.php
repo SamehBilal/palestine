@@ -35,8 +35,8 @@ new #[Layout('layouts.front')] class extends Component
 <div>
     <div class="content-section-1" >
         <div class="container">
-            <div class="row justify-content-center help-button">
-                <a class="offset-lg-2 col-4 text-highlight underline" href="https://www.buymeacoffee.com/samehbilal" target="_blank" rel="noreferrer">Help keep this website running! 🙏</a>
+            <div class="row justify-content-center help-button ">
+                <a class="text-highlight underline text-center" href="https://www.buymeacoffee.com/samehbilal" target="_blank" rel="noreferrer">Help keep this website running! 🙏</a>
             </div>
             <div class="row">
                 <div class="col-xl-6">
@@ -60,13 +60,11 @@ new #[Layout('layouts.front')] class extends Component
                             <div class="tracker-block-style-1">
                                 <div class="tracker-block">
                                     <div class="tracker-block__icon">
-                                        <img src="{{ asset('assets/img/woman (3).png') }}" alt="corona-icon" />
+                                        <img src="{{ asset('assets/img/patient.png') }}" alt="corona-icon" />
                                     </div>
                                     <div class="tracker-block__content">
-                                        <h4>Total Women</h4>
-                                        <h2><span class="cases-no recovered">0,000,000</span> <span class="new-no">(+<span
-                                                    class="today_recovered">000,000</span>)</span>
-                                        </h2>
+                                        <h4>Total Injured</h4>
+                                        <h2><span class="cases-no current_cases">0,000,000</span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -91,15 +89,19 @@ new #[Layout('layouts.front')] class extends Component
                             <div class="tracker-block-style-1">
                                 <div class="tracker-block">
                                     <div class="tracker-block__icon">
-                                        <img src="{{ asset('assets/img/patient.png') }}" alt="corona-icon" />
+                                        <img src="{{ asset('assets/img/woman (3).png') }}" alt="corona-icon" />
                                     </div>
                                     <div class="tracker-block__content">
-                                        <h4>Total Injured</h4>
-                                        <h2><span class="cases-no current_cases">0,000,000</span></h2>
+                                        <h4>Total Women</h4>
+                                        <h2><span class="cases-no recovered">0,000,000</span> <span class="new-no">(+<span
+                                                    class="today_recovered">000,000</span>)</span>
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+
                     </div>
 
                     <div class="row">

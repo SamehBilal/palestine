@@ -99,7 +99,6 @@ return [
     'available_locales' => [
         'en',
         'ar',
-        'fr'
     ],
 
     /*

@@ -45,13 +45,13 @@ body {
 /* Remove text-shadow in selection highlight. */
 
 ::-moz-selection {
-    background: #f2b636;
+    background: #00CBAD;
     color: #FFFFFF;
     text-shadow: none;
 }
 
 ::selection {
-    background: #f2b636;
+    background: #00CBAD;
     color: #FFFFFF;
     text-shadow: none;
 }
@@ -1779,7 +1779,7 @@ only screen and (max-width: 767.98px) {
 
 @media only screen and (max-width: 767.98px) {
     .main-content-wrapper {
-        padding: 60px 0;
+        padding: 0;
     }
 }
 
@@ -1884,4 +1884,22 @@ font-weight: bold;
 
 .language-link{
     color: #00CBAD;
+}
+
+.credits{
+    /* background-color: #1D1C22; */
+    color: #FFFFFF!important;
+    padding: 10px!important;
+}
+
+@media only screen and (max-width: 767.98px) {
+    .map-dashboard{
+        position: relative;
+       left: 0;
+        top: 20%;
+        display: block;
+        max-width: 500px;
+        height: 100%;
+        /* transform: scale(2.49817); */
+    }
 }

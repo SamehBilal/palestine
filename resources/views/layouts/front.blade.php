@@ -24,6 +24,9 @@
     <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" />
     <!--== Bootstrap Min CSS ==-->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <!--== Material Design Icons Min CSS ==-->
+    <link href="{{ asset('assets/css/materialdesignicons.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/line.css') }}" rel="stylesheet" />
 
     <!--== Main Style CSS ==-->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
@@ -71,6 +74,13 @@
     <!--== Start Main Content Wrapper ==-->
     <main class="main-content-wrapper" >
         {{ $slot }}
+
+        <div class="last-update-wrap text-center credits">
+            <div class="text-center footer">
+                <p class="text-reset ">© <script>document.write(new Date().getFullYear())</script>. made with <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#00cbad}</style><path d="M119.4 44.1c23.3-3.9 46.8-1.9 68.6 5.3l49.8 77.5-75.4 75.4c-1.5 1.5-2.4 3.6-2.3 5.8s1 4.2 2.6 5.7l112 104c2.9 2.7 7.4 2.9 10.5 .3s3.8-7 1.7-10.4l-60.4-98.1 90.7-75.6c2.6-2.1 3.5-5.7 2.4-8.8L296.8 61.8c28.5-16.7 62.4-23.2 95.7-17.6C461.5 55.6 512 115.2 512 185.1v5.8c0 41.5-17.2 81.2-47.6 109.5L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9L47.6 300.4C17.2 272.1 0 232.4 0 190.9v-5.8c0-69.9 50.5-129.5 119.4-141z"/></svg> by Non-Palestinians.</p>
+            </div>
+        </div>
+
     </main>
     <!--== End Main Content Wrapper ==-->
 
@@ -286,8 +296,8 @@
 
         });
     </script>
-<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="samehbilal" data-description="Support me on Buy me a coffee!" data-message="Help keep this website running! 🙏" data-color="#FFAD5B" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
-    <!-- endbuild -->
+{{-- <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="samehbilal" data-description="Support me on Buy me a coffee!" data-message="Keep this website running!" data-color="#00CBAD" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+ --}}    <!-- endbuild -->
     {{-- <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="samehbilal" data-color="#FFDD00" data-emoji="🙏"  data-font="Cookie" data-text="help keep this website!" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script> --}}
 </body>
 
