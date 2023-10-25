@@ -68,32 +68,32 @@ new #[Layout('layouts.front')] class extends Component
                 <label for="select3" class="sr-only">{{-- Region --}}</label>
                 <select class="country" name="country">
                     <option value="en" class="egypt" data-image="{{ asset('assets/img/palestine.webp') }}">
-                        West Bank
+                        {{ __('content.West Bank') }}
                     </option>
                     <option value="egypt" class="en" data-image="{{ asset('assets/img/palestine.webp') }}">
-                        Gaza
+                        {{ __('content.Gaza') }}
                     </option>
                 </select>
             </div>
             <div class="track-item">
-                <p class="track-item__title">Total Cases</p>
+                <p class="track-item__title">{{ __('content.Total Cases') }}</p>
                 <h4 class="track-item__no infected">00,000</h4>
             </div>
             <div class="track-item">
-                <p class="track-item__title">Last 24 Hours</p>
+                <p class="track-item__title">{{ __('content.Last 24 Hours') }}</p>
                 <h4 class="track-item__no today_infected">00,000</h4>
             </div>
             <div class="track-item">
-                <p class="track-item__title">Deaths <span>(<span class="deaths-rate"></span>%)</span>
+                <p class="track-item__title">{{ __('content.Deaths') }} <span>(<span class="deaths-rate"></span>%)</span>
                 </p>
                 <h4 class="track-item__no deaths">00,000</h4>
             </div>
             <div class="track-item">
-                <p class="track-item__title">New Deaths</p>
+                <p class="track-item__title">{{ __('content.New Deaths') }}</p>
                 <h4 class="track-item__no today_deaths">00,000</h4>
             </div>
             <div class="track-item">
-                <p class="track-item__title">Women & Children <span>(<span class="recover-rate"></span>%)</span>
+                <p class="track-item__title">{{ __('content.Women & Children') }} <span>(<span class="recover-rate"></span>%)</span>
                 </p>
                 <h4 class="track-item__no recovered">00,000</h4>
             </div>
