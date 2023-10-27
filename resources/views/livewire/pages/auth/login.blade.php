@@ -39,9 +39,10 @@ new #[Layout('layouts.auth')] class extends Component
         session()->regenerate();
 
         $this->redirect(
-            session('url.intended', RouteServiceProvider::HOME),
+            session('url.intended',  route('dashboard', 'en')),
             navigate: true
         );
+
     }
 
     protected function ensureIsNotRateLimited(): void
