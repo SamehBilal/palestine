@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('salt', 50);
+            $table->string('mime', 25);
+            $table->string('size',15);
+            $table->string('dimention', 40);
+            $table->string('alt')->nullable();
+            $table->string('title')->nullable();
+            $table->string('caption')->nullable();
+            $table->tinyInteger('dim')->default(0);
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

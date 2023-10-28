@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('livetrackers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('total_deaths');
+            $table->unsignedBigInteger('women_deaths')->nullable();
+            $table->unsignedBigInteger('children_deaths')->nullable();
+            $table->unsignedBigInteger('elders_deaths')->nullable();
+            $table->unsignedBigInteger('total_injuries');
+            $table->unsignedBigInteger('total_displaced')->nullable();
+            $table->unsignedBigInteger('other_side_deaths')->nullable();
+            $table->unsignedBigInteger('other_side_injuries')->nullable();
+            $table->timestamp('last_update')->useCurrent();
             $table->timestamps();
         });
     }

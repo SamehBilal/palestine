@@ -13,6 +13,19 @@ return new class extends Migration
     {
         Schema::create('attacks', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('total_deaths');
+            $table->unsignedBigInteger('women_deaths')->nullable();
+            $table->unsignedBigInteger('children_deaths')->nullable();
+            $table->unsignedBigInteger('elders_deaths')->nullable();
+            $table->unsignedBigInteger('total_injuries');
+            $table->unsignedBigInteger('total_displaced')->nullable();
+            $table->unsignedBigInteger('other_side_deaths')->nullable();
+            $table->unsignedBigInteger('other_side_injuries')->nullable();
+            $table->unsignedBigInteger('duration')->nullable();
+            //$table->dateTime('date_of_occurance')->default(now());
+            $table->timestamp('date_of_occurance')->useCurrent();
+            $table->unsignedBigInteger('region_id')->nullable();
+            $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade');
             $table->timestamps();
         });
     }

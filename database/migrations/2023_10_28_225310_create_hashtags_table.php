@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('regions', function (Blueprint $table) {
+        Schema::create('hashtags', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('code');
-            $table->unsignedBigInteger('population')->nullable();
-            $table->string('flag')->nullable();
-            $table->string('color')->nullable();
-            $table->boolean('old')->default(1);
+            $table->string('first_letter')->nullable();
+            $table->string('language')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('regions');
+        Schema::dropIfExists('hashtags');
     }
 };
