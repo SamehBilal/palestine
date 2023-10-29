@@ -242,4 +242,5 @@ return [
     'Help keep this website running!'                       => 'Forbidden',
     'Total Cases'                                           => 'إجمالي الحالات',
     'Last 24 Hours'                                         => 'أخر 24 ساعه',
+    'Support the case'                                      => 'ادعم القضية',
 ];

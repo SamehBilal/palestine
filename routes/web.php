@@ -28,8 +28,11 @@ Route::prefix('{locale}')
     Volt::route('live-tracker', 'pages.live.index')
             ->name('live');
 
-            Volt::route('map', 'pages.map.index')
+    Volt::route('map', 'pages.map.index')
             ->name('map');
+
+    Volt::route('support', 'pages.support.index')
+            ->name('support');
 
     Route::view('dashboard', 'dashboard')
         ->middleware(['auth', 'verified'])

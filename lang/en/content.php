@@ -240,4 +240,5 @@ return [
     'Help keep this website running!'                   => 'Help keep this website running!',
     'Total Cases'                                       => 'Total Cases',
     'Last 24 Hours'                                     => 'Last 24 Hours',
+    'Support the case'                                  => 'Support the case',
 ];
