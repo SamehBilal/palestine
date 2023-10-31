@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 45px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+          
+          h1 {
+            margin-bottom: 30px;
+            font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+            font-size: 48px;
+            font-weight: bold;
+          }
+          
+          .btn-glossary-filter {
+            margin: 1px 1px 15px;
+            padding: 0 5px;
+          }
+          
+          .glossary-item {
+            margin: 15px 0;
+          }
+          .glossary-item h2 {
+            border-bottom: 1px dotted black;
+          }
+          
+          #search-group {
+            position: relative;
+          }
+          #search-group .glossary-search-icon {
+            position: absolute;
+            z-index: 10;
+            top: 10px;
+            left: 10px;
+            width: 25px;
+            height: 25px;
+            transition: all 0.33s;
+          }
+          #search-group .glossary-search-input {
+            padding-left: 40px;
+            transition: all 0.33s;
+          }
+          #search-group .glossary-search-input:focus {
+            padding-left: 15px;
+          }
+          #search-group .glossary-search-input:focus ~ .glossary-search-icon {
+            left: calc(100% - 40px);
+          }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h1>Dynamic Lexicon </h1>
+          </div>
+      
+          <div class="col-12 text-center">
+            <button class="btn btn-small btn-secondary btn-glossary-filter">A-Z</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">A</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">B</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">C</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">D</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">E</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">F</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">G</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">H</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">I</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">J</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">K</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">L</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">M</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">N</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">O</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">P</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">Q</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">R</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">S</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">T</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">U</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">V</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">W</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">X</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">Y</button>
+            <button class="btn btn-small btn-secondary btn-glossary-filter">Z</button>
+          </div>
+      
+          <div class="col-12 col-lg-4 offset-lg-4 text-center" style="margin-bottom: 15px">
+            <div class="input-group" id="search-group">
+              
+              <input type="text" class="form-control glossary-search-input" placeholder="Search ..." aria-label="Username" aria-describedby="glossary-search-exp-addon" id="glossary-search-exp">
+              
+              <svg width="24" height="24" viewBox="0 0 24 24" class="glossary-search-icon">
+                <path d="M20.71,4.04C21.1,3.65 21.1,3 20.71,2.63L18.37,0.29C18,-0.1 17.35,-0.1 16.96,0.29L15,2.25L18.75,6M17.75,7L14,3.25L4,13.25V17H7.75L17.75,7Z"></path>
+              </svg>
+            </div>
+      
+          </div>
+        </div>
+      
+        <div class="row" id="glossary-grid">
+      
+          <div class="col-12 glossary-item glossary-filter_A-Z glossary-filter_A">
+            <h2>A</h2>
+          </div>
+      
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3 glossary-item glossary-filter_A-Z glossary-filter_A">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="h4 card-title">America</h3>
+                <p class="card-text">You enjoyed that. The Federation's gone; the Borg is everywhere! Mr. Worf, you do remember how to fire phasers? You're going to be an interesting companion, Mr. Data. This is not about revenge. This is about justice. Earl Grey tea, watercress
+                  sandwiches... and Bularian canapés? Are you up for promotion? What's a knock-out like you doing in a computer-generated gin joint like this? And blowing into maximum warp speed, you appeared for an instant to be in two places at once.</p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3 glossary-item glossary-filter_A-Z glossary-filter_A">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="h4 card-title">Ants</h3>
+                <p class="card-text">
+      
+                  Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American
+                  crime. Like they're actually proud of that shit. </p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3 glossary-item glossary-filter_A-Z glossary-filter_A">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="h4 card-title">Atlantic</h3>
+                <p class="card-text">You enjoyed that. The Federation's gone; the Borg is everywhere! Mr. Worf, you do remember how to fire phasers? You're going to be an interesting companion, Mr. Data. This is not about revenge. This is about justice. Earl Grey tea, watercress
+                  sandwiches... and Bularian canapés? Are you up for promotion? What's a knock-out like you doing in a computer-generated gin joint like this? And blowing into maximum warp speed, you appeared for an instant to be in two places at once.</p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3 glossary-item glossary-filter_A-Z glossary-filter_A">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="h4 card-title">Ape</h3>
+                <p class="card-text">
+                  <!-- start slipsum code -->
+      
+                  Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become
+                  television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+      
+                  <!-- end slipsum code -->
+                </p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-12 glossary-item glossary-filter_A-Z glossary-filter_B">
+            <h2>B</h2>
+          </div>
+      
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3 glossary-item glossary-filter_A-Z glossary-filter_B">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="h4 card-title">Benedikt</h3>
+                <p class="card-text">
+                  <!-- start slipsum code -->
+      
+                  Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've
+                  known way back when... You know why, David? Because of the kids. They called me Mr Glass. The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity
+                  and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison
+                  and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
+      
+                  <!-- end slipsum code -->
+                </p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3 glossary-item glossary-filter_A-Z glossary-filter_B">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="h4 card-title">Banana</h3>
+                <p class="card-text">
+                  <!-- start slipsum code -->
+      
+                  Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already
+                  been through too much shit this morning over this case to hand it over to your dumb ass.
+      
+                  <!-- end slipsum code -->
+                </p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3 glossary-item glossary-filter_A-Z glossary-filter_B">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="h4 card-title">Bolivia</h3>
+                <p class="card-text">
+                  <!-- start slipsum code -->
+      
+                  Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become
+                  television programs. Some don't, become nothing. She starred in one of the ones that became nothing. Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I
+                  don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.
+      
+                  <!-- end slipsum code -->
+                </p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3 glossary-item glossary-filter_A-Z glossary-filter_B">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="h4 card-title">Baseball</h3>
+                <p class="card-text">You enjoyed that. The Federation's gone; the Borg is everywhere! Mr. Worf, you do remember how to fire phasers? You're going to be an interesting companion, Mr. Data. This is not about revenge. This is about justice. Earl Grey tea, watercress
+                  sandwiches... and Bularian canapés? Are you up for promotion? What's a knock-out like you doing in a computer-generated gin joint like this? And blowing into maximum warp speed, you appeared for an instant to be in two places at once.</p>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/gsap-player.js"></script>
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+        <script>
+            $(function() {
+                $("#glossary-grid").isotope({
+                  itemSelector: ".glossary-item",
+                  layoutMode: "fitRows",
+                  filter: ".glossary-item, .glossary-item:not(.hide-this-item)"
+                });
+              
+                $(".btn-glossary-filter").on("click", function(evt) {
+                  $("#glossary-grid").isotope({
+                    filter: ".glossary-filter_" + $(this).text() + ":not(.hide-this-item)",
+                    layoutMode: "fitRows"
+                  });
+                });
+              
+                $("#glossary-search-exp").on("keyup", function(evt) {
+               
+                  var search_exp;
+                  search_exp = $(this).val();
+              
+                  $(".glossary-item").each(function(index) {
+                    var card_title;
+                    $(this).removeClass("hide-this-item");
+                    card_title = $(this)
+                      .find(".card-title")
+                      .text();
+                    if (card_title.toLowerCase().indexOf(search_exp.toLowerCase()) >= 0) {
+                      return console.log(card_title);
+                    } else {
+                      return $(this).addClass("hide-this-item");
+                    }
+                  });
+              
+                  $("#glossary-grid").isotope({
+                    itemSelector: ".glossary-item",
+                    layoutMode: "fitRows",
+                    filter: ".glossary-item:not(.hide-this-item)"
+                  });
+                });
+              
+                
+                $("#glossary-search-exp").on("focus", function(evt) {
+                  
+                });
+              
+                $("#glossary-search-exp").on("focusout", function(evt) {
+                  
+                });
+                
+              });
+              
+        </script>
+</body>
+</html>

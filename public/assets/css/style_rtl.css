@@ -255,18 +255,18 @@ Header Style
 }
 
 .menubar .nav li:not(:last-child) {
-    margin-right: 70px;
+    margin-left: 70px;
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+@media only screen and (min-width: 767.99px) and (max-width: 1440px) {
     .menubar .nav li:not(:last-child) {
-        margin-right: 30px;
+        margin-left: 20px;
     }
 }
 
 @media only screen and (max-width: 767.98px) {
     .menubar .nav li:not(:last-child) {
-        margin-right: 20px;
+        margin-left: 20px;
     }
 }
 
@@ -1887,7 +1887,7 @@ font-weight: bold;
 }
 
 .language-link{
-    color: #00CBAD;
+    color: #00CBAD!important;
 }
 
 .credits{
@@ -1899,11 +1899,21 @@ font-weight: bold;
 @media only screen and (max-width: 767.98px) {
     .map-dashboard{
         position: relative;
-        right: 0;
+        right: 22%;
         top: 20%;
         display: block;
         max-width: 500px;
         height: 100%;
         /* transform: scale(2.49817); */
     }
+}
+
+.select2-dropdown,.select2-search,.select2-results,.select2-results__options,.select2-search__field {
+    background-color: #1D1C22;
+    border-color: #fff;
+    color: #fff;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+    background-color: #00CBAD;
 }

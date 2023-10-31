@@ -66,9 +66,10 @@
                         <nav class="menubar">
                             <ul class="nav">
                                 <li><a href="{{ route('live') }}" {{-- wire:navigate --}}>{{ __('content.Live Tracker') }}</a></li>
-                                {{-- <li><a href="{{ route('map') }}" wire:navigate>{{ __('content.Original Map') }}</a></li> --}}
-                                <li><a href="{{ route('support') }}" {{-- wire:navigate --}}>{{ __('content.Support the case') }}</a></li>
-                                <x-front.languages-navigation />
+                                <li><a href="{{ route('map') }}" {{-- wire:navigate --}}>{{ __('content.Original Map') }}</a></li>
+                                <li><a href="{{ route('support') }}" {{-- wire:navigate --}}>Support{{-- {{ __('content.Support the case') }} --}}</a></li>
+                                <li><a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => app()->getLocale() == 'ar' ? 'en':'ar']) }}" class="language-link" {{-- wire:navigate --}}>{{ strtoupper(app()->getLocale()) == 'AR' ? 'EN':'AR' }}</a></li>
+                                {{-- <x-front.languages-navigation /> --}}
                             </ul>
                         </nav>
                     </div>
@@ -303,7 +304,7 @@
 
         });
     </script>
-<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="samehbilal" data-description="Support me on Buy me a coffee!" data-message="Keep this website running!" data-color="#00CBAD" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="samehbilal" data-description="Support me on Buy me a coffee!" data-message="Keep this website running!" data-color="#00CBAD" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
     <!-- endbuild -->
     {{-- <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="samehbilal" data-color="#FFDD00" data-emoji="🙏"  data-font="Cookie" data-text="help keep this website!" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script> --}}
 </body>
