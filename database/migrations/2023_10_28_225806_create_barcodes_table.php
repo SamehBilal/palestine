@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('barcodes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('photo')->default('barcode.jpg');
+            $table->string('photo')->default('barcode.webp');
             $table->timestamps();
         });
     }

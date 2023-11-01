@@ -22,6 +22,7 @@ class CountryFactory extends Factory
             'nationality'               => Str::random(2),
             'code'                      => Str::random(3),
             'phone_code'                => $this->faker->randomElement([1,2,3,4,5]),
+            'support'                   => $this->faker->randomElement([0,1]),
         ];
     }
 }

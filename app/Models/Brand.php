@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     use HasFactory;
-    
+
     protected $guarded = ['id'];
 
     public function attrs()
@@ -27,9 +27,9 @@ class Brand extends Model
     {
         $common = [
             'name'              => 'required|min:3|max:70',
-            'logo'              => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'logo'              => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:2048',
             'first_letter'      => 'nullable|min:1|max:3',
-            'video'             => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'video'             => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:2048',
             'alternative_id'    => 'nullable|exists:brands,id',
             'made_by'           => 'nullable|exists:regions,id',
         ];

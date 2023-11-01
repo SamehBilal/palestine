@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('elders_deaths')->nullable();
             $table->unsignedBigInteger('total_injuries');
             $table->unsignedBigInteger('total_displaced')->nullable();
+            $table->unsignedBigInteger('total_destroyed_residential_units')->nullable();
             $table->unsignedBigInteger('other_side_deaths')->nullable();
             $table->unsignedBigInteger('other_side_injuries')->nullable();
             $table->timestamp('last_update')->useCurrent();

@@ -29,7 +29,7 @@ class Region extends Model
             'name'              => 'required|min:1|max:70',
             'code'              => 'required|min:1|max:20',
             'population'        => 'nullable|numeric',
-            'flag'              => 'nullable|min:1|max:20',
+            'flag'              => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:2048',
             'color'             => 'nullable|min:1|max:20',
             'old'               => 'required|boolean',
         ];

@@ -22,7 +22,7 @@ class Barcode extends Model
     {
         $common = [
             'name'          => 'required|min:3|max:70',
-            'photo'         => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'photo'         => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:2048',
         ];
 
         if ($update) {

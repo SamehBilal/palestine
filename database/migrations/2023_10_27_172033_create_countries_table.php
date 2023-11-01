@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('nationality')->nullable();
             $table->integer('phone_code');
+            $table->boolean('support')->default(1);
             $table->timestamps();
         });
     }

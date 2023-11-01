@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('celebrities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('photo')->default('celeb.jpg');
+            $table->string('photo')->default('celeb.webp');
             $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('SET NULL');
             $table->timestamps();

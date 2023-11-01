@@ -67,7 +67,7 @@ class User extends Authenticatable
             'name'          => "nullable|min:3|max:70",
             'email'         => "nullable|email|regex:/(.+)@(.+)\.(.+)/i|unique:users,email,$id",
             'password'      => 'nullable|confirmed',
-            'avatar'        => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048'
+            'avatar'        => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:2048'
         ];
 
         if ($update) {

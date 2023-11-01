@@ -23,6 +23,7 @@ class Country extends Model
             'name'          => 'Name',
             'nationality'   => 'Nationality',
             'phone_code'    => 'Phone Code',
+            'support'       => 'Support',
         ];
     }
 
@@ -33,6 +34,7 @@ class Country extends Model
             'name'              => 'required|min:1|max:70',
             'nationality'       => 'nullable|min:1|max:70',
             'phone_code'        => 'required|numeric',
+            'support'           => 'required|boolean',
         ];
 
         if ($update) {
