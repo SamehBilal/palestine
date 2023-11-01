@@ -62,7 +62,7 @@ new #[Layout('layouts.front')] class extends Component
             margin: 15px 0;
           }
           .glossary-item h2 {
-            border-bottom: 1px dotted black;
+            border-bottom: 1px dotted #fff;
           }
 
           #search-group {
@@ -109,13 +109,13 @@ new #[Layout('layouts.front')] class extends Component
             <button class="cn-button" id="cn-button">Menu</button>
             <div class="cn-wrapper" id="cn-wrapper">
                 <ul>
-                    <li><a href="#"><span>About</span></a></li>
-                    <li><a href="#"><span>Tutorials</span></a></li>
-                    <li><a href="#"><span>Articles</span></a></li>
-                    <li><a href="#"><span>Snippets</span></a></li>
-                    <li><a href="#"><span>Plugins</span></a></li>
-                    <li><a href="#"><span>Contact</span></a></li>
-                    <li><a href="#"><span>Follow</span></a></li>
+                    <li><a href="#"><span>Brands</span></a></li>
+                    <li><a href="#"><span>Celebrities</span></a></li>
+                    <li><a href="#"><span>Hashtags</span></a></li>
+                    <li><a href="#"><span>Barcodes</span></a></li>
+                    <li><a href="#"><span>Post Encryption</span></a></li>
+                    <li><a href="#"><span>Gallery</span></a></li>
+                    <li><a href="#"><span>Donations</span></a></li>
                  </ul>
             </div>
             <!-- End of Nav Structure -->
@@ -188,7 +188,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Alexander Shumihin <a href="http://drbl.in/eAoj">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -199,7 +199,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -210,7 +210,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -221,7 +221,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -232,7 +232,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -243,7 +243,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -254,7 +254,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -265,7 +265,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                     </ul>
                 </div>
@@ -285,7 +285,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Alexander Shumihin <a href="http://drbl.in/eAoj">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -296,7 +296,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -307,7 +307,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -318,7 +318,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -329,7 +329,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -340,7 +340,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -351,7 +351,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -362,7 +362,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -373,7 +373,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -384,7 +384,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -395,7 +395,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -406,7 +406,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -417,7 +417,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -428,7 +428,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -439,7 +439,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -450,7 +450,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -461,7 +461,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -472,7 +472,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -483,7 +483,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -494,7 +494,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -505,7 +505,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -516,7 +516,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -527,7 +527,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -538,7 +538,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -549,7 +549,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -560,7 +560,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -571,7 +571,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
 
                         <li>
@@ -583,7 +583,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -594,7 +594,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -605,7 +605,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -616,7 +616,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -627,7 +627,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -638,7 +638,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -649,7 +649,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -660,7 +660,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -671,7 +671,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -682,7 +682,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -693,7 +693,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -704,7 +704,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -715,7 +715,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -726,7 +726,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -737,7 +737,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -748,7 +748,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                         <li>
                             <div class="ch-item">
@@ -759,7 +759,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
                                     </div>
                                 </div>
-                            </div><p class="card-title" style="color: #000;">Mcdonald's</p>
+                            </div><p class="card-title" >Mcdonald's</p>
                         </li>
                     </ul>
                 </div>

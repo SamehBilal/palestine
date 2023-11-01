@@ -13,16 +13,14 @@ return new class extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('salt', 50);
-            $table->string('mime', 25);
-            $table->string('size',15);
-            $table->string('dimention', 40);
+            $table->string('name')->nullable();
+            $table->string('salt', 50)->nullable();
+            $table->string('mime', 25)->nullable();
+            $table->string('size',15)->nullable();
+            $table->string('dimention', 40)->nullable();
             $table->string('alt')->nullable();
             $table->string('title')->nullable();
             $table->string('caption')->nullable();
-            $table->tinyInteger('dim')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });

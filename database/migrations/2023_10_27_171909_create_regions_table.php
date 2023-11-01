@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('code');
             $table->unsignedBigInteger('population')->nullable();
-            $table->string('flag')->nullable();
+            $table->string('flag')->default('flag.jpg');
             $table->string('color')->nullable();
             $table->boolean('old')->default(1);
             $table->timestamps();

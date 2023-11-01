@@ -50,21 +50,24 @@ class User extends Authenticatable
         return "/storage/users/{$this->id}/{$this->avatar}";
     }
 
+    public function attrs()
+    {
+        return [
+            'name'          => 'Fullname',
+            'email'         => 'Email',
+            'password'      => 'Password',
+            'avatar'        => 'Avatar',
+
+        ];
+    }
+
     public static function rules($update = false, $id = null)
     {
         $common = [
-            'first_name'    => "nullable|min:3|max:20",
-            'last_name'     => "nullable|min:3|max:20",
-            'full_name'     => "nullable|max:40",
+            'name'          => "nullable|min:3|max:70",
             'email'         => "nullable|email|regex:/(.+)@(.+)\.(.+)/i|unique:users,email,$id",
             'password'      => 'nullable|confirmed',
-            'other_email'   => "nullable|email|regex:/(.+)@(.+)\.(.+)/i|unique:users,other_email,$id",
-            'phone'         => "nullable|numeric|min:11",
-            'other_phone'   => "nullable|numeric|min:11",
-            'gender'        => 'nullable',Rule::in(['Male','Female']),
-            'religion'      => 'nullable',Rule::in(['Islam','Christianity']),
-            'date_of_birth' => "nullable|date_format:Y-m-d|before:today",
-            'avatar'        => 'nullable|image|mimes:jpeg,jpg,png,gif|max:10000'
+            'avatar'        => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048'
         ];
 
         if ($update) {

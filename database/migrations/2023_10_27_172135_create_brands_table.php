@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('logo')->default('logo.jpg');
             $table->string('first_letter')->nullable();
-            $table->string('video')->nullable();
+            $table->string('video')->default('video.gif');
             $table->unsignedBigInteger('alternative_id')->nullable();
             $table->unsignedBigInteger('made_by')->nullable();
             $table->foreign('made_by')->references('id')->on('countries')->onDelete('SET NULL');
