@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('other_side_deaths')->nullable();
             $table->unsignedBigInteger('other_side_injuries')->nullable();
             $table->timestamp('last_update')->useCurrent();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

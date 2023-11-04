@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('alternative_id')->nullable();
             $table->unsignedBigInteger('made_by')->nullable();
             $table->foreign('made_by')->references('id')->on('countries')->onDelete('SET NULL');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

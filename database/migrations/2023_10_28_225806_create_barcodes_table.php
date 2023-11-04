@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('photo')->default('barcode.webp');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->timestamp('date_of_occurance')->useCurrent();
             $table->unsignedBigInteger('region_id')->nullable();
             $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

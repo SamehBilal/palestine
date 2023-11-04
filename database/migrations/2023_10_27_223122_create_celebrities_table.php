@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('photo')->default('celeb.webp');
             $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('SET NULL');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

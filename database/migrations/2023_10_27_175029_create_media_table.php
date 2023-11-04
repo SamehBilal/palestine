@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('caption')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

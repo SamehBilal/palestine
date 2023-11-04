@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('flag')->default('flag.webp');
             $table->string('color')->nullable();
             $table->boolean('old')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

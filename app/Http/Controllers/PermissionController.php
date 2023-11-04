@@ -2,24 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attack;
-use App\Http\Requests\StoreAttackRequest;
-use App\Http\Requests\UpdateAttackRequest;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
+use Spatie\Permission\Models\Permission;
 
-class AttackController extends Controller
+class PermissionController extends Controller
 {
     protected $breadcrumb;
-    protected $model    = Attack::class;
-    protected $rname    = 'attacks';
-    protected $bulk_can = 'attacks_bulk';
+    protected $model    = Permission::class;
+    protected $rname    = 'permission';
+    protected $bulk_can = 'permission_bulk';
     protected $phrases  = [
-        'index'     => 'Attacks',
+        'index'     => 'Permissions',
         'trash'     => 'Trash',
-        'create'    => 'Add Attack',
-        'update'    => 'Edit Attack',
+        'create'    => 'Add Permission',
+        'update'    => 'Edit Permission',
     ];
 
     public function __construct()
@@ -55,21 +52,9 @@ class AttackController extends Controller
     public function insert($request, &$model, $mod = 'create')
     {
         //dd($request->all());
-        $model->total_deaths                        = (int)$request->total_deaths;
-        $model->women_deaths                        = (int)$request->women_deaths;
-        $model->children_deaths                     = (int)$request->children_deaths;
-        $model->elders_deaths                       = (int)$request->elders_deaths;
-        $model->total_injuries                      = (int)$request->total_injuries;
-        $model->total_displaced                     = (int)$request->total_displaced;
-        $model->total_destroyed_residential_units   = (int)$request->total_destroyed_residential_units;
-        $model->other_side_deaths                   = (int)$request->other_side_deaths;
-        $model->other_side_injuries                 = (int)$request->other_side_injuries;
-        $model->duration                            = (int)$request->duration;
-        $model->date_of_occurance                   = Carbon::parse($request->date_of_occurance)/* ->format('Y-m-d') */;
-        /* $model->date_of_occurance                   = $request->date_of_occurance; */
-        $model->region_id                           = (int)$request->region_id;
-        /* $model->slug = $this->sluger('name', $request, $model, $mod);
-        $model->index = (bool)$request->index; */
+        $model->name                        = $request->name;
+        $model->order                       = (int)$request->order;
+        $model->guard_name                  = $request->guard_name;
     }
 
     /**
@@ -82,11 +67,13 @@ class AttackController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         $this->authorize('index', $this->model);
-        $results = $this->model::orderBy('id', 'desc')->where(function ($q) use ($request) {
+        $results = $this->model::with('roles','users')->orderBy('id', 'desc')->where(function ($q) use ($request) {
             if ($request->s) {
                 $q->whereRaw("LOWER(name) ilike '%{$request->s}%'");
             }
@@ -102,6 +89,8 @@ class AttackController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -116,8 +105,11 @@ class AttackController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(StoreAttackRequest $request)
+    public function store(Request $request)
     {
         $this->authorize('add', $this->model);
         $this->validate($request, $this->model::rules());
@@ -126,13 +118,16 @@ class AttackController extends Controller
         $model->save();
         $this->afterInsert($request, $model, 'create');
         $this->cleanCache($model);
-        return to_route($this->rname . '.index');
+        return to_route($this->rname . '.index')->with('success','Permission created successfully');
     }
 
     /**
      * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function show(Attack $attack)
+    public function show(Permission $permission)
     {
         $this->authorize('show', $this->model);
         return $this->admin($this->rname . '.update', [
@@ -140,14 +135,17 @@ class AttackController extends Controller
             'page_title' => $this->phrases['update'],
             'update' => true,
             'route' => $this->rname,
-            'result' => $attack,
+            'result' => $permission,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function edit(Attack $attack)
+    public function edit(Permission $permission)
     {
         $this->authorize('edit', $this->model);
         return $this->admin($this->rname . '.update', [
@@ -155,69 +153,41 @@ class AttackController extends Controller
             'page_title' => $this->phrases['update'],
             'update' => true,
             'route' => $this->rname,
-            'result' => $attack,
+            'result' => $permission,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAttackRequest $request, Attack $attack)
+    public function update(Request $request, Permission $permission)
     {
         $this->authorize('update', $this->model);
-        $model = $attack;
-        $this->validate($request, $this->model::rules($update = true, $attack->id));
+        $model = $permission;
+        $this->validate($request, $this->model::rules($update = true, $permission->id));
         $this->insert($request, $model, 'edit');
         $model->update();
         $this->afterInsert($request, $model, 'edit');
         $this->cleanCache($model);
-        return back();
-    }
-
-    /**
-     * Display a listing of the deleted resource.
-     */
-    public function trash(Request $request)
-    {
-        $this->authorize('trash', $this->model);
-        $results = $this->model::orderBy('id', 'desc')->onlyTrashed()->paginate(20);
-        return $this->admin($this->rname . '.index', [
-            'breadcrumb' => $this->breadcrumb,
-            'page_title' => 'Trash',
-            'results' => $results,
-            'trash' => true,
-            'route' => $this->rname,
-        ]);
-    }
-
-    /**
-     * Restore the specified resource from storage.
-     */
-    public function restore(Request $request, $id)
-    {
-        $this->authorize('restore', $this->model);
-        $model = $this->model::where('id', (int)$id)->withTrashed()->firstOrFail();
-        if (!empty($model)) {
-            $model->restore();
-            $this->cleanCache($model);
-        }
-        return to_route($this->rname . '.index');
+        return back()->with('success','Permission Updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(Attack $attack)
+    public function destroy(Permission $permission)
     {
         $this->authorize('delete', $this->model);
-        $action = 'delete';
-        if (empty($attack)) {
-            $attack = $attack->withTrashed()->firstOrFail();
-            $action = Gate::allows('tags_fdelete') ? 'forceDelete' : '';
-        }
-        $attack?->$action();
-        $this->cleanCache($attack);
-        return back();
+        $permission?->delete();
+        $this->cleanCache($permission);
+        return back()->withSuccess('Permission Deleted successfully');
     }
 
     /**
@@ -230,7 +200,7 @@ class AttackController extends Controller
         if ($model) {
             $keys = array_merge(
                 $keys,
-                ['attack_id_' . $model->id],
+                ['permission_id_' . $model->id],
             );
         }
 

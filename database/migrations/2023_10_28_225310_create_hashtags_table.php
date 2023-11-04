@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('first_letter')->nullable();
             $table->string('language')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

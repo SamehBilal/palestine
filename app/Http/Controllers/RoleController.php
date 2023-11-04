@@ -2,23 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Celebrity;
-use App\Http\Requests\StoreCelebrityRequest;
-use App\Http\Requests\UpdateCelebrityRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
-class CelebrityController extends Controller
+class RoleController extends Controller
 {
     protected $breadcrumb;
-    protected $model    = Celebrity::class;
-    protected $rname    = 'celebrities';
-    protected $bulk_can = 'celebrities_bulk';
+    protected $model    = Role::class;
+    protected $rname    = 'roles';
+    protected $bulk_can = 'roles_bulk';
     protected $phrases  = [
-        'index'     => 'Celebrities',
+        'index'     => 'Roles',
         'trash'     => 'Trash',
-        'create'    => 'Add Celebrity',
-        'update'    => 'Edit Celebrity',
+        'create'    => 'Add Role',
+        'update'    => 'Edit Role',
     ];
 
     public function __construct()
@@ -54,11 +53,8 @@ class CelebrityController extends Controller
     public function insert($request, &$model, $mod = 'create')
     {
         //dd($request->all());
-        $model->name            = $request->name;
-        $model->photo           = $request->photo;
-        $model->country_id      = (int)$request->country_id;
-        /* $model->slug = $this->sluger('name', $request, $model, $mod);
-        $model->index = (bool)$request->index; */
+        $model->name                        = $request->name;
+        $model->guard_name                  = $request->guard_name;
     }
 
     /**
@@ -66,16 +62,18 @@ class CelebrityController extends Controller
      */
     public function afterInsert($request, $model, $mod = 'create')
     {
-        //
+        $model->syncPermissions(array_keys($request->permissions));
     }
 
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         $this->authorize('index', $this->model);
-        $results = $this->model::orderBy('id', 'desc')->where(function ($q) use ($request) {
+        $results = $this->model::with('permissions','users')->orderBy('id', 'desc')->where(function ($q) use ($request) {
             if ($request->s) {
                 $q->whereRaw("LOWER(name) ilike '%{$request->s}%'");
             }
@@ -91,22 +89,29 @@ class CelebrityController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
         $this->authorize('add', $this->model);
+        $permissions = Permission::get()->groupBy('order');
         return $this->admin($this->rname . '.update', [
-            'breadcrumb' => $this->breadcrumb,
-            'page_title' => $this->phrases['create'],
-            'update' => false,
-            'route' => $this->rname,
+            'breadcrumb'    => $this->breadcrumb,
+            'page_title'    => $this->phrases['create'],
+            'update'        => false,
+            'permissions'   => $permissions,
+            'route'         => $this->rname,
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(StoreCelebrityRequest $request)
+    public function store(Request $request)
     {
         $this->authorize('add', $this->model);
         $this->validate($request, $this->model::rules());
@@ -115,13 +120,16 @@ class CelebrityController extends Controller
         $model->save();
         $this->afterInsert($request, $model, 'create');
         $this->cleanCache($model);
-        return to_route($this->rname . '.index');
+        return to_route($this->rname . '.index')->with('success','Role created successfully');
     }
 
     /**
      * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function show(Celebrity $celebrity)
+    public function show(Role $role)
     {
         $this->authorize('show', $this->model);
         return $this->admin($this->rname . '.update', [
@@ -129,84 +137,61 @@ class CelebrityController extends Controller
             'page_title' => $this->phrases['update'],
             'update' => true,
             'route' => $this->rname,
-            'result' => $celebrity,
+            'result' => $role,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function edit(Celebrity $celebrity)
+    public function edit(Role $role)
     {
         $this->authorize('edit', $this->model);
+        $permissions = Permission::get()->groupBy('order');
         return $this->admin($this->rname . '.update', [
-            'breadcrumb' => $this->breadcrumb,
-            'page_title' => $this->phrases['update'],
-            'update' => true,
-            'route' => $this->rname,
-            'result' => $celebrity,
+            'breadcrumb'    => $this->breadcrumb,
+            'page_title'    => $this->phrases['update'],
+            'update'        => true,
+            'permissions'   => $permissions,
+            'route'         => $this->rname,
+            'result'        => $role,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCelebrityRequest $request, Celebrity $celebrity)
+    public function update(Request $request, Role $role)
     {
         $this->authorize('update', $this->model);
-        $model = $celebrity;
-        $this->validate($request, $this->model::rules($update = true, $celebrity->id));
+        $model = $Role;
+        $this->validate($request, $this->model::rules($update = true, $Role->id));
         $this->insert($request, $model, 'edit');
         $model->update();
         $this->afterInsert($request, $model, 'edit');
         $this->cleanCache($model);
-        return back();
-    }
-
-    /**
-     * Display a listing of the deleted resource.
-     */
-    public function trash(Request $request)
-    {
-        $this->authorize('trash', $this->model);
-        $results = $this->model::orderBy('id', 'desc')->onlyTrashed()->paginate(20);
-        return $this->admin($this->rname . '.index', [
-            'breadcrumb' => $this->breadcrumb,
-            'page_title' => 'Trash',
-            'results' => $results,
-            'trash' => true,
-            'route' => $this->rname,
-        ]);
-    }
-
-    /**
-     * Restore the specified resource from storage.
-     */
-    public function restore(Request $request, $id)
-    {
-        $this->authorize('restore', $this->model);
-        $model = $this->model::where('id', (int)$id)->withTrashed()->firstOrFail();
-        if (!empty($model)) {
-            $model->restore();
-            $this->cleanCache($model);
-        }
-        return to_route($this->rname . '.index');
+        return back()->with('success','Role Updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(Celebrity $celebrity)
+    public function destroy(Role $role)
     {
         $this->authorize('delete', $this->model);
-        $action = 'delete';
-        if (empty($attack)) {
-            $attack = $celebrity->withTrashed()->firstOrFail();
-            $action = Gate::allows('tags_fdelete') ? 'forceDelete' : '';
-        }
-        $attack?->$action();
-        $this->cleanCache($attack);
-        return back();
+        $role?->delete();
+        $this->cleanCache($role);
+        return back()->withSuccess('Role Deleted successfully');
     }
 
     /**
@@ -219,7 +204,7 @@ class CelebrityController extends Controller
         if ($model) {
             $keys = array_merge(
                 $keys,
-                ['celebrity_id_' . $model->id],
+                ['role_id_' . $model->id],
             );
         }
 

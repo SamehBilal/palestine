@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('avatar')->default('avatar.png');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
