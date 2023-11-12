@@ -1,5 +1,5 @@
 <?php
-namespace App\Traits;
+namespace App\Http\Traits;
 
 use App\Models\City;
 use App\Models\State;
