@@ -538,22 +538,34 @@ const chartReport = async (selectorId) => {
         let labels = [];
         let dates = [];
 
-        reports.push(600);
-        reports.push(500);
-        reports.push(700);
-        reports.push(800);
-        reports.push(900);
-        reports.push(1001);
-        reports.push(1002);
-        reports.push(1002);
-        reports.push(1003);
-        reports.push(1004);
-        reports.push(1005);
-        reports.push(1006);
-        reports.push(1007);
-        reports.push(1008);
-        reports.push(2200);
-        reports.push(10032);
+        reports.push(238);
+        reports.push(428);
+        reports.push(577);
+        reports.push(923);
+        reports.push(1128);
+        reports.push(1571);
+        reports.push(1951);
+        reports.push(2270);
+        reports.push(2385);
+        reports.push(2809);
+        reports.push(3061);
+        reports.push(3543);
+        reports.push(4221);
+        reports.push(4741);
+        reports.push(5182);
+        reports.push(6504);
+        reports.push(6954);
+        reports.push(7415);
+        reports.push(7761);
+        reports.push(8069);
+        reports.push(8382);
+        reports.push(8610);
+        reports.push(8850);
+        reports.push(9159);
+        reports.push(9299);
+        reports.push(9883);
+        reports.push(10678);
+        reports.push(11208);
         labels.push(`Day 1`);
         labels.push(`Day 2`);
         labels.push(`Day 3`);
@@ -566,27 +578,50 @@ const chartReport = async (selectorId) => {
         labels.push(`Day 10`);
         labels.push(`Day 11`);
         labels.push(`Day 12`);
-        labels.push(`Day 13`);
         labels.push(`Day 14`);
         labels.push(`Day 15`);
         labels.push(`Day 16`);
         labels.push(`Day 17`);
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
-        dates.push(new Date());
+        labels.push(`Day 19`);
+        labels.push(`Day 20`);
+        labels.push(`Day 21`);
+        labels.push(`Day 22`);
+        labels.push(`Day 23`);
+        labels.push(`Day 25`);
+        labels.push(`Day 26`);
+        labels.push(`Day 27`);
+        labels.push(`Day 28`);
+        labels.push(`Day 30`);
+        labels.push(`Day 33`);
+        labels.push(`Day 35`);
+        dates.push(new Date("October 7, 2023").toDateString());
+        dates.push(new Date("October 8, 2023").toDateString());
+        dates.push(new Date("October 9, 2023").toDateString());
+        dates.push(new Date("October 10, 2023").toDateString());
+        dates.push(new Date("October 11, 2023").toDateString());
+        dates.push(new Date("October 12, 2023").toDateString());
+        dates.push(new Date("October 13, 2023").toDateString());
+        dates.push(new Date("October 14, 2023").toDateString());
+        dates.push(new Date("October 15, 2023").toDateString());
+        dates.push(new Date("October 16, 2023").toDateString());
+        dates.push(new Date("October 17, 2023").toDateString());
+        dates.push(new Date("October 18, 2023").toDateString());
+        dates.push(new Date("October 20, 2023").toDateString());
+        dates.push(new Date("October 21, 2023").toDateString());
+        dates.push(new Date("October 22, 2023").toDateString());
+        dates.push(new Date("October 23, 2023").toDateString());
+        dates.push(new Date("October 25, 2023").toDateString());
+        dates.push(new Date("October 26, 2023").toDateString());
+        dates.push(new Date("October 27, 2023").toDateString());
+        dates.push(new Date("October 28, 2023").toDateString());
+        dates.push(new Date("October 29, 2023").toDateString());
+        dates.push(new Date("October 31, 2023").toDateString());
+        dates.push(new Date("November 1, 2023").toDateString());
+        dates.push(new Date("November 2, 2023").toDateString());
+        dates.push(new Date("November 3, 2023").toDateString());
+        dates.push(new Date("November 5, 2023").toDateString());
+        dates.push(new Date("November 8, 2023").toDateString());
+        dates.push(new Date("November 10, 2023").toDateString());
 
         /* data.map((item, index) => {
             const value = item.Confirmed - data[index > 0 ? (index - 1) : 0].Confirmed;
@@ -637,7 +672,7 @@ const chartReport = async (selectorId) => {
                             return "Day - " + (Number(tooltipItems[0].index) + 1) + ", " + dates[Number(tooltipItems[0].index)];
                         },
                         label: function (tooltipItem) {
-                            return "Infected: " + Number(tooltipItem.yLabel) + "+";
+                            return "Deaths: " + Number(tooltipItem.yLabel) + "+";
                         }
                     }
                 },
@@ -682,19 +717,19 @@ const chartReport = async (selectorId) => {
  */
 const worldwidrWithPieChart = async () => {
     //const data = await getData(BASE_URL + 'v2/all');
-    const deathRate = (5200 * 100) / 5552;
-    const recoveredRate = (3000 * 100) / 5552;
-    const activeCasesRate = (1500 * 100) / 5552;
+    const deathRate = (678 * 100) / 11180;
+    const recoveredRate = (4506 * 100) / 11180;
+    const activeCasesRate = (3027 * 100) / 11180;
     const percents = [{
-            title: "Total Deaths",
+            title: "Women "+ Math.floor(activeCasesRate) + '%',
             value: activeCasesRate
         },
         {
-            title: "Women",
+            title: "Children "+ Math.floor(recoveredRate) + '%',
             value: recoveredRate
         },
         {
-            title: "Children",
+            title: "Elders "+ Math.floor(deathRate) + '%',
             value: deathRate
         }
     ];

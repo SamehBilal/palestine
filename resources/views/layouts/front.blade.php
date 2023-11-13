@@ -57,7 +57,10 @@
 
                 <div class="col-sm-6 col-lg-4">
                     <div class="last-update-wrap text-center">
-                        <p class="mb-0">{{ __('content.Updated') }}: <span class="last-update">{{ now()->format('Y-m-d G:i A') }}</span> <img src="{{ asset('assets/img/live.gif') }}" alt="" height="40px" ></p>
+                        @php
+                            $live = App\Models\Livetracker::findOrFail(1);
+                        @endphp
+                        <p class="mb-0">{{ __('content.Updated') }}: <span class="last-update">{{ $live->last_update->format('Y-m-d G:i A') }}</span> <img src="{{ asset('assets/img/live.gif') }}" alt="" height="40px" ></p>
                     </div>
                 </div>
 

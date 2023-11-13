@@ -12,6 +12,15 @@ class Livetracker extends Model
 
     protected $guarded = ['id'];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'last_update' => 'datetime',
+    ];
+
     public function attrs()
     {
         return [

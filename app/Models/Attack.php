@@ -12,6 +12,11 @@ class Attack extends Model
 
     protected $guarded = ['id'];
 
+    public function regions()
+    {
+        return $this->hasOne(Region::class, 'id' ,'region_id');
+    }
+
     public function attrs()
     {
         return [

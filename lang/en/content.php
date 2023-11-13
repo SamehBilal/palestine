@@ -241,4 +241,9 @@ return [
     'Total Cases'                                       => 'Total Cases',
     'Last 24 Hours'                                     => 'Last 24 Hours',
     'Support the case'                                  => 'Support the case',
+    'Destroyed Residential Units'                       => 'Destroyed Residential Units',
+    'Total Elders'                                      => 'Total Elders',
+    'Elders'                                            => 'Elders',
+    'Displaced'                                         => 'Displaced',
+    'Destroyed Units'                                   => 'Destroyed Units',
 ];

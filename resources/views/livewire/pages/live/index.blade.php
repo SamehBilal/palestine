@@ -5,9 +5,22 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Rule;
 use Livewire\Volt\Component;
+use App\Models\Livetracker;
+use App\Models\Region;
+use App\Models\Attack;
 
 new #[Layout('layouts.front')] class extends Component
 {
+    public $live = '';
+    public $regions = '';
+    public $attacks = '';
+    public function mount(): void
+    {
+        $this->live     = Livetracker::findOrFail(1);
+        $this->regions  = Region::where('old',0)->get();
+        $this->attacks  = Attack::with('regions')->get();
+    }
+
     /* #[Rule(['required', 'string'])]
     public string $password = '';
 
@@ -49,7 +62,7 @@ new #[Layout('layouts.front')] class extends Component
                                     </div>
                                     <div class="tracker-block__content">
                                         <h4>{{ __('content.Total Deaths') }}</h4>
-                                        <h2><span class="cases-no infected">0,000,000</span> <span class="new-no">(+<span class="today_infected">000,000</span>)</span>
+                                        <h2><span class="cases-no infected">{{ number_format($live->total_deaths) }}</span> <span class="new-no">(+<span class="today_infected">530</span>)</span>
                                         </h2>
                                     </div>
                                 </div>
@@ -64,7 +77,7 @@ new #[Layout('layouts.front')] class extends Component
                                     </div>
                                     <div class="tracker-block__content">
                                         <h4>{{ __('content.Total Injured') }}</h4>
-                                        <h2><span class="cases-no current_cases">0,000,000</span></h2>
+                                        <h2><span class="cases-no current_cases">{{ number_format($live->total_injuries) }}</span> <span class="new-no">(+<span class="today_injuries">1,100</span>)</span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +91,7 @@ new #[Layout('layouts.front')] class extends Component
                                     </div>
                                     <div class="tracker-block__content">
                                         <h4>{{ __('content.Total Children') }}</h4>
-                                        <h2><span class="cases-no deaths">0,000,000</span> <span class="new-no">(+<span class="today_deaths">000,000</span>)</span>
+                                        <h2><span class="cases-no deaths">{{ number_format($live->children_deaths) }}</span> <span class="new-no">(+<span class="today_deaths">182</span>)</span>
                                         </h2>
                                     </div>
                                 </div>
@@ -93,8 +106,8 @@ new #[Layout('layouts.front')] class extends Component
                                     </div>
                                     <div class="tracker-block__content">
                                         <h4>{{ __('content.Total Women') }}</h4>
-                                        <h2><span class="cases-no recovered">0,000,000</span> <span class="new-no">(+<span
-                                                    class="today_recovered">000,000</span>)</span>
+                                        <h2><span class="cases-no recovered">{{ number_format($live->women_deaths) }}</span> <span class="new-no">(+<span
+                                                    class="today_recovered">204</span>)</span>
                                         </h2>
                                     </div>
                                 </div>
@@ -110,35 +123,37 @@ new #[Layout('layouts.front')] class extends Component
                                 <div class="tracker-block__header with-option">
                                     <div class="section-head">
                                         <h2>{{ __('content.From OCT the 7th') }}</h2>
-                                        <p>{{ __('content.Updated') }} <span class="last-update"></span> {{ __('content.minutes ago') }}</p>
+                                        <p>{{ __('content.Updated') }} <span class="last-update"></span> {{ $live->last_update->diffForHumans() }}</p>
                                     </div>
                                     <div class="select-country">
                                         {{-- <label for="select1" class="sr-only">Region</label> --}}
                                         <select class="country" id="select1" name="country" style="width: 164px!Important;">
-                                            <option value="en" class="egypt" data-image="{{ asset('assets/img/palestine.webp') }}">
-                                                {{ __('content.West Bank') }}
-                                            </option>
-                                            <option value="egypt" class="en" data-image="{{ asset('assets/img/palestine.webp') }}">
-                                                {{ __('content.Gaza') }}
-                                            </option>
+                                            @foreach ($regions as $region)
+                                                <option value="{{ $region->code }}" class="{{ $region->name }}" data-image="{{ asset('assets/img/palestine.webp') }}">
+                                                    {{ __('content.'.$region->name) }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="tracker-block__body">
                                     <div class="track-item">
-                                        <p class="track-item__title track-item__title-deaths">{{ __('content.All Deaths') }}</p>
-                                        <h4 class="track-item__no infected">0,00,000</h4>
+                                        <p class="track-item__title track-item__title-deaths">{{ __('content.Total Displaced') }}</p>
+                                        <h4 class="track-item__no infected">{{ number_format($live->total_displaced) }} <span class="new-no-new">(+<span
+                                            class="today_recovered">100,000</span>)</span></h4>
                                     </div>
 
                                     <div class="track-item">
-                                        <p class="track-item__titletrack-item__title-recovered">{{ __('content.Women & Children') }}</p>
-                                        <h4 class="track-item__no deaths">0,00,000</h4>
+                                        <p class="track-item__title track-item__title-recovered">{{ __('content.Total Elders') }}</p>
+                                        <h4 class="track-item__no deaths">{{ number_format($live->elders_deaths) }} <span class="new-no-new">(+<span
+                                            class="today_recovered">29</span>)</span></h4>
                                     </div>
 
                                     <div class="track-item">
-                                        <p class="track-item__title">{{ __('content.Injured') }}</p>
-                                        <h4 class="track-item__no recovered">0,00,000</h4>
+                                        <p class="track-item__title">{{ __('content.Destroyed Residential Units') }}</p>
+                                        <h4 class="track-item__no recovered">{{ number_format($live->total_destroyed_residential_units) }} <span class="new-no-new">(+<span
+                                            class="today_recovered">8,000</span>)</span></h4>
                                     </div>
                                 </div>
                             </div>
@@ -302,56 +317,12 @@ new #[Layout('layouts.front')] class extends Component
 
                         <div class="cases-by-country__bottom">
                             <ul class="cases-country-lists">
-                                <li>
-                                    <h6 class="country-name">{{ __('content.Gaza') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-                                <li>
-                                    <h6 class="country-name">{{ __('content.West Bank') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-                                <li>
-                                    <h6 class="country-name">{{ __('content.Gaza') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-                                <li>
-                                    <h6 class="country-name">{{ __('content.West Bank') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-                                <li>
-                                    <h6 class="country-name">{{ __('content.Gaza') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-
-                                <li>
-                                    <h6 class="country-name">{{ __('content.West Bank') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-                                <li>
-                                    <h6 class="country-name">{{ __('content.Gaza') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-                                <li>
-                                    <h6 class="country-name">{{ __('content.West Bank') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-                                <li>
-                                    <h6 class="country-name">{{ __('content.Gaza') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-                                <li>
-                                    <h6 class="country-name">{{ __('content.West Bank') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-                                <li>
-                                    <h6 class="country-name">{{ __('content.Gaza') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-                                <li>
-                                    <h6 class="country-name">{{ __('content.Gaza') }}</h6>
-                                    <span class="cases-no infected">520</span>
-                                </li>
-
+                                @foreach ($regions->take(12) as $region)
+                                    <li>
+                                        <h6 class="country-name">{{ __('content.'.$region->name) }}</h6>
+                                        <span class="cases-no infected">520</span>
+                                    </li>
+                                @endforeach
                             </ul>
                             <div class="text-center">
                                 <button class="btn-show-all"> {{ __('content.View all Regions') }}</button>
@@ -366,343 +337,33 @@ new #[Layout('layouts.front')] class extends Component
                             <thead class="list-view__head">
                                 <tr>
                                     <th>{{ __('content.Region') }}</th>
-                                    <th>{{ __('content.Total Injured') }}</th>
-                                    <th>{{ __('content.New') }}</th>
-                                    <th>{{ __('content.Total Deaths') }}</th>
+                                    <th>{{ __('content.Injured') }}</th>
+                                    <th>{{ __('content.Deaths') }}</th>
+                                    <th>{{ __('content.Women') }}</th>
+                                    <th>{{ __('content.Children') }}</th>
+                                    <th>{{ __('content.Elders') }}</th>
                                     <th>{{ __('content.Deaths') }} %</th>
-                                    <th>{{ __('content.New Deaths') }}</th>
-                                    <th>{{ __('content.Total Women') }}</th>
-                                    <th>{{ __('content.Total Children') }}</th>
-                                    <th>{{ __('content.Total Displaced') }}</th>
+                                    <th>{{ __('content.Destroyed Residential Units') }}</th>
+                                    <th>{{ __('content.Displaced') }}</th>
                                 </tr>
                             </thead>
 
                             <tbody class="list-view__body">
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine">{{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="country-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="worldwide-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Egypt"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="worldwide-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Egypt"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="worldwide-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Egypt"> {{ __('content.West Bank') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
-                                <tr class="worldwide-item">
-                                    <td>
-                                        <img src="{{ asset('assets/img/palestine.webp') }}" alt="Egypt"> {{ __('content.Gaza') }}
-                                    </td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>25</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                    <td>500</td>
-                                </tr>
+                                @foreach ($attacks as $attack)
+                                    <tr class="country-item">
+                                        <td>
+                                            <img src="{{ asset('assets/img/palestine.webp') }}" alt="Palestine"> {{ __('content.'.$attack->regions?->name) }}
+                                        </td>
+                                        <td>{{ number_format( $attack->total_injuries) }}</td>
+                                        <td>{{ number_format( $attack->total_deaths) }}</td>
+                                        <td>{{ number_format( $attack->women_deaths) }}</td>
+                                        <td>{{ number_format( $attack->children_deaths) }}</td>
+                                        <td>{{ number_format( $attack->elders_deaths) }}</td>
+                                        <td>{{ number_format(($attack->total_deaths/$attack->total_injuries)*100) }}%</td>
+                                        <td>{{ number_format( $attack->total_destroyed_residential_units) }}</td>
+                                        <td>{{ number_format( $attack->total_displaced) }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -719,13 +380,13 @@ new #[Layout('layouts.front')] class extends Component
                         <div class="chart-status-top">
                             <h3>{{ __('content.Total Graph View') }}</h3>
 
-                            <div class="country-select">
+                            {{-- <div class="country-select">
                                 <select name="counry">
                                     <option value="">{{ __('content.West Bank') }}</option>
                                     <option value="">{{ __('content.Gaza') }}</option>
                                     <option value=""{{ __('content.West Bank') }}></option>
                                 </select>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="chart-wrap">
                             <canvas id="chart-canvas" style="width: 100%; height: 100%"></canvas>
@@ -740,20 +401,20 @@ new #[Layout('layouts.front')] class extends Component
                         <div class="activities-wrap worldwide-stats">
                             <div class="activities-block">
                                 <div class="activities-block-item">
-                                    <h6>{{ __('content.Total Injured') }}</h6>
-                                    <h4 class="infected">000,000</h4>
-                                </div>
-                                <div class="activities-block-item">
                                     <h6>{{ __('content.Total Deaths') }}</h6>
-                                    <h4 class="current_cases">000,000</h4>
+                                    <h4 class="infected">{{ number_format($live->total_deaths) }}</h4>
                                 </div>
                                 <div class="activities-block-item">
-                                    <h6>{{ __('content.Women') }}</h6>
-                                    <h4 class="recovered">000,000</h4>
+                                    <h6>{{ __('content.Total Women') }}</h6>
+                                    <h4 class="current_cases">{{ number_format($live->women_deaths) }}</h4>
                                 </div>
                                 <div class="activities-block-item">
-                                    <h6>{{ __('content.Children') }}</h6>
-                                    <h4 class="deaths">000,000</h4>
+                                    <h6>{{ __('content.Total Children') }}</h6>
+                                    <h4 class="recovered">{{ number_format($live->children_deaths) }}</h4>
+                                </div>
+                                <div class="activities-block-item">
+                                    <h6>{{ __('content.Total Elders') }}</h6>
+                                    <h4 class="deaths">{{ number_format($live->elders_deaths) }}</h4>
                                 </div>
                             </div>
                             <div class="charts">
@@ -774,7 +435,7 @@ new #[Layout('layouts.front')] class extends Component
                         <div class="tracker-block tracker-block--3 text-center">
                             <div class="tracker-block__top">
                                 <h4>{{ __('content.From OCT the 7th') }}</h4>
-                                <p>{{ __('content.Updated') }} <span class="last-update"></span> {{ __('content.minutes ago') }}</p>
+                                <p>{{ __('content.Updated') }} <span class="last-update"></span> {{ $live->last_update->diffForHumans() }}</p>
                                 <h2 class="tracker-block__top-total-cases infected">00,000,0</h2>
                                 <h6 class="new-no">+<span class="today_infected">0000</span> (24h)</h6>
                             </div>

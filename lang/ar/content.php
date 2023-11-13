@@ -243,4 +243,9 @@ return [
     'Total Cases'                                           => 'إجمالي الحالات',
     'Last 24 Hours'                                         => 'أخر 24 ساعه',
     'Support the case'                                      => 'ادعم القضية',
+    'Destroyed Residential Units'                           => 'الوحدات السكنية المدمرة',
+    'Total Elders'                                          => 'إجمالي المسنين',
+    'Elders'                                                => 'المسنين',
+    'Displaced'                                             => 'النازحين',
+    'Destroyed Units'                                       => 'الوحدات السكنية المدمرة',
 ];

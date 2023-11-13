@@ -12,6 +12,11 @@ class Region extends Model
 
     protected $guarded = ['id'];
 
+    public function attack()
+    {
+        return $this->belongsTo(Attack::class);
+    }
+
     public function attrs()
     {
         return [

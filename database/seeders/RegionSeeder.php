@@ -45,7 +45,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Ramallah',
@@ -53,7 +53,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Dead Sea',
@@ -85,7 +85,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Bethlehem',
@@ -93,7 +93,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Acre',
@@ -109,7 +109,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Baysan',
@@ -141,7 +141,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Beersheba',
@@ -157,7 +157,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Alramlah',
@@ -173,7 +173,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Haifa',
@@ -189,7 +189,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Jericho',
@@ -197,7 +197,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Salfit',
@@ -205,7 +205,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Tubas',
@@ -213,7 +213,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Qalqilya',
@@ -221,7 +221,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Deir El Balah',
@@ -229,7 +229,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'North Gaza',
@@ -237,7 +237,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
             [
                 'name'              => 'Rafah',
@@ -245,7 +245,7 @@ class RegionSeeder extends Seeder
                 'population'        => '5769750',
                 'flag'              => 'palestine.webp',
                 'color'             => 'blue',
-                'old'               => 1,
+                'old'               => 0,
             ],
         ];
 
