@@ -61,6 +61,12 @@ class LivetrackerController extends Controller
         $model->total_injuries                      = (int)$request->total_injuries;
         $model->total_displaced                     = (int)$request->total_displaced;
         $model->total_destroyed_residential_units   = (int)$request->total_destroyed_residential_units;
+        $model->total_medical_deaths                = (int)$request->total_medical_deaths;
+        $model->total_medical_injured               = (int)$request->total_medical_injured;
+        $model->total_hospitals_broken              = (int)$request->total_hospitals_broken;
+        $model->total_clinics_broken                = (int)$request->total_clinics_broken;
+        $model->total_ambulances_broken             = (int)$request->total_ambulances_broken;
+        $model->total_ambulances_semi_broken        = (int)$request->total_ambulances_semi_broken;
         $model->other_side_deaths                   = (int)$request->other_side_deaths;
         $model->other_side_injuries                 = (int)$request->other_side_injuries;
         $model->last_update                         = $request->last_update;

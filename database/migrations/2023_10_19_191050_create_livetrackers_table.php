@@ -20,6 +20,12 @@ return new class extends Migration
             $table->unsignedBigInteger('total_injuries');
             $table->unsignedBigInteger('total_displaced')->nullable();
             $table->unsignedBigInteger('total_destroyed_residential_units')->nullable();
+            $table->unsignedBigInteger('total_medical_deaths')->nullable();
+            $table->unsignedBigInteger('total_medical_injured')->nullable();
+            $table->unsignedBigInteger('total_hospitals_broken')->nullable();
+            $table->unsignedBigInteger('total_clinics_broken')->nullable();
+            $table->unsignedBigInteger('total_ambulances_broken')->nullable();
+            $table->unsignedBigInteger('total_ambulances_semi_broken')->nullable();
             $table->unsignedBigInteger('other_side_deaths')->nullable();
             $table->unsignedBigInteger('other_side_injuries')->nullable();
             $table->timestamp('last_update')->useCurrent();

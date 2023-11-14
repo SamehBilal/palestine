@@ -27,6 +27,12 @@ class LivetrackerFactory extends Factory
             'other_side_injuries'                               => $this->faker->randomElement([1,2,3,4,5]),
             'last_update'                                       => now(),
             'total_destroyed_residential_units'                 => $this->faker->randomElement([1,2,3,4,5]),
+            'total_medical_deaths'                              => $this->faker->randomElement([1,2,3,4,5]),
+            'total_hospitals_broken'                            => $this->faker->randomElement([1,2,3,4,5]),
+            'total_clinics_broken'                              => $this->faker->randomElement([1,2,3,4,5]),
+            'total_ambulances_broken'                           => $this->faker->randomElement([1,2,3,4,5]),
+            'total_ambulances_semi_broken'                      => $this->faker->randomElement([1,2,3,4,5]),
+            'total_medical_injured'                             => $this->faker->randomElement([1,2,3,4,5]),
         ];
     }
 }

@@ -488,7 +488,7 @@ only screen and (min-width: 768px) and (max-width: 991.98px) {
     border-bottom: 2px solid #EFEFEF;
     color: #555555;
     font-size: 13px;
-    padding: 37px 30px 30px;
+    padding: 17px 30px 30px;
 }
 
 .tracker-block--3 .tracker-block__top h4 {
@@ -517,7 +517,7 @@ only screen and (min-width: 768px) and (max-width: 991.98px) {
 }
 
 .tracker-block--3 .tracker-block__bottom {
-    padding: 30px;
+    padding: 30px 30px 17px;
 }
 
 .tracker-block--3 .tracker-block__bottom-wrap {
@@ -1046,6 +1046,7 @@ only screen and (min-width: 768px) and (max-width: 991.98px) {
 .list-view .dataTables_filter {
     margin-top: 10px;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .list-view .dataTables_filter input {

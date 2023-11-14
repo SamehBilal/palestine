@@ -317,15 +317,15 @@ new #[Layout('layouts.front')] class extends Component
 
                         <div class="cases-by-country__bottom">
                             <ul class="cases-country-lists">
-                                @foreach ($regions->take(12) as $region)
-                                    <li>
+                                @foreach ($regions as $key => $region)
+                                    <li class="{{ $key > 11 ? "region-disabled":"" }}"  style='{{  $key > 11 ? "display:none;":"" }}'>
                                         <h6 class="country-name">{{ __('content.'.$region->name) }}</h6>
                                         <span class="cases-no infected">520</span>
                                     </li>
                                 @endforeach
                             </ul>
                             <div class="text-center">
-                                <button class="btn-show-all"> {{ __('content.View all Regions') }}</button>
+                                <button class="btn-show-all" data-display="all"> {{ __('content.View all Regions') }}</button>
                             </div>
                         </div>
                     </div>
@@ -430,33 +430,34 @@ new #[Layout('layouts.front')] class extends Component
 
                 <div class="col-lg-6 col-xl-3">
                     <div class="today-view report-item worldwide-stats">
-                        <h3>{{ __('content.Today\'s View') }}</h3>
+                        <h3>{{ __('content.Medical Sector') }}</h3>
 
                         <div class="tracker-block tracker-block--3 text-center">
                             <div class="tracker-block__top">
                                 <h4>{{ __('content.From OCT the 7th') }}</h4>
                                 <p>{{ __('content.Updated') }} <span class="last-update"></span> {{ $live->last_update->diffForHumans() }}</p>
-                                <h2 class="tracker-block__top-total-cases infected">00,000,0</h2>
-                                <h6 class="new-no">+<span class="today_infected">0000</span> (24h)</h6>
+                                <h5 class="tracker-block__bottom__item-title track-item__title-recovered">{{ __('content.Doctors/Medics') }}</h5>
+                                <h2 class="tracker-block__top-total-cases infected">{{ number_format($live->total_medical_deaths) }}</h2>
+                                <h6 class="new-no">+<span class="today_infected">{{ number_format($live->total_medical_injured) }}</span> ({{ __('content.Injured') }})</h6>
                             </div>
 
                             <div class="tracker-block__bottom">
                                 <div class="tracker-block__bottom-wrap">
                                     <div class="tracker-block__bottom__item">
-                                        <h5 class="tracker-block__bottom__item-title title-deaths">{{ __('content.Total Deaths') }}</h5>
-                                        <h2 class="tracker-block__bottom__item-no deaths">00,000,0</h2>
-                                        <h6 class="new-no">+<span class="today_deaths">00,00</span> (24h)</h6>
+                                        <h5 class="tracker-block__bottom__item-title title-deaths">{{ __('content.Broken Ambulances') }}</h5>
+                                        <h2 class="tracker-block__bottom__item-no deaths">{{ number_format($live->total_ambulances_broken) }}</h2>
+                                        <h6 class="new-no">+<span class="today_deaths">{{ number_format($live->total_ambulances_semi_broken) }}</span> ({{ __('content.Semi Broken') }})</h6>
                                     </div>
                                     <div class="tracker-block__bottom__item">
-                                        <h5 class="tracker-block__bottom__item-title title-active">{{ __('content.Women') }}</h5>
-                                        <h2 class="tracker-block__bottom__item-no current_cases">00,000,0</h2>
-                                        <h6 class="new-no">+<span class="today_active_cases">00,00</span> (24h)</h6>
+                                        <h5 class="tracker-block__bottom__item-title title-active">{{ __('content.Closed Health Care Centers') }}</h5>
+                                        <h2 class="tracker-block__bottom__item-no current_cases">{{ number_format($live->total_clinics_broken) }}</h2>
+                                        <h6 class="new-no"><span class="today_active_cases">{{ __('content.Out Of') }}</span> (72)</h6>
                                     </div>
                                 </div>
                                 <div class="tracker-block__bottom__item recovered-item">
-                                    <h5 class="tracker-block__bottom__item-title title-recovered">{{ __('content.Children') }}</h5>
-                                    <h2 class="tracker-block__bottom__item-no recovered">00,000,0</h2>
-                                    <h6 class="new-no">+<span class="today_recovered">00,00</span> (24h)</h6>
+                                    <h5 class="tracker-block__bottom__item-title title-recovered">{{ __('content.Hospitals Out Of Service') }}</h5>
+                                    <h2 class="tracker-block__bottom__item-no recovered">{{ number_format($live->total_hospitals_broken) }}</h2>
+                                    <h6 class="new-no"><span class="today_recovered">{{ __('content.Out Of') }}</span> (35)</h6>
                                 </div>
                             </div>
                         </div>
