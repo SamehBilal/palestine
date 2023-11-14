@@ -25,6 +25,7 @@ class AttackFactory extends Factory
             'total_displaced'                                   => $this->faker->randomElement([1,2,3,4,5]),
             'other_side_deaths'                                 => $this->faker->randomElement([1,2,3,4,5]),
             'other_side_injuries'                               => $this->faker->randomElement([1,2,3,4,5]),
+            'losts'                                             => $this->faker->randomElement([1,2,3,4,5]),
             'duration'                                          => $this->faker->randomElement([1,2,3,4,5]),
             'date_of_occurance'                                 => now(),
             'region_id'                                         => $this->faker->randomElement([1,2,3,4,5]),

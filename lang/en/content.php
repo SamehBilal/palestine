@@ -234,6 +234,7 @@ return [
     'Region'                                            => 'Region',
     'View all Regions'                                  => 'View all Regions',
     'View less Regions'                                 => 'View less Regions',
+    'All Regions'                                       => 'All Regions',
     'Cases by Region'                                   => 'Deaths by Region',
     'Injured'                                           => 'Injured',
     'Women & Children'                                  => 'Women & Children',

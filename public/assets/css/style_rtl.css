@@ -1314,15 +1314,15 @@ only screen and (min-width: 992px) and (max-width: 1199.98px) {
 }
 
 .map-status-colors .colors li span.min {
-    background-color: #ACCDDC;
+    background-color: #1C202B;
 }
 
 .map-status-colors .colors li span.mid {
-    background-color: #4A97B9;
+    background-color: #163957;
 }
 
 .map-status-colors .colors li span.max {
-    background-color: #006491;
+    background-color: #0B68AA;
 }
 
 .map-content-wrap {

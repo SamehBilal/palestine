@@ -309,16 +309,37 @@ const reportListView = async (selectorID, search) => {
         language: {
             url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
         },
+        order: false
     });
 }
 
 let table = document.querySelector('table');
 
-jQuery(table).DataTable({
+var otable = jQuery(table).DataTable({
     /* "searching": !!'gaza' */
     language: {
         url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/ar.json',
     },
+    order: false
+});
+
+$('.country-search').click(function () {
+    var region = $(this).find('.country-name').text();
+    if(region != 'All Regions' && region != 'كل المناطق')
+    {
+        otable.search(region).draw();
+    }else{
+        otable.search('').draw();
+    }
+});
+
+// EDIT: Capture enter press as well
+$("#DataTables_Table_0_filter").find('input').keypress(function(e) {
+    // You can use $(this) here, since this once again refers to your text input
+    if(e.which === 13) {
+        e.preventDefault(); // Prevent form submit
+        otable.search($(this).val()).draw();
+    }
 });
 
 /**
@@ -727,15 +748,15 @@ const worldwidrWithPieChart = async () => {
     const recoveredRate = (4506 * 100) / 11180;
     const activeCasesRate = (3027 * 100) / 11180;
     const percents = [{
-            title: "Women "+ Math.floor(activeCasesRate) + '%',
+            title: "النساء "+ Math.floor(activeCasesRate) + '%',
             value: activeCasesRate
         },
         {
-            title: "Children "+ Math.floor(recoveredRate) + '%',
+            title: "الأطفال "+ Math.floor(recoveredRate) + '%',
             value: recoveredRate
         },
         {
-            title: "Elders "+ Math.floor(deathRate) + '%',
+            title: "المسنين "+ Math.floor(deathRate) + '%',
             value: deathRate
         }
     ];

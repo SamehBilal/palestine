@@ -59,6 +59,7 @@
                     <div class="last-update-wrap text-center">
                         @php
                             $live = App\Models\Livetracker::findOrFail(1);
+                            $attacks  = App\Models\Attack::orderBy('total_deaths','desc')->get();
                         @endphp
                         <p class="mb-0">{{ __('content.Updated') }}: <span class="last-update">{{ $live->last_update->format('Y-m-d G:i A') }}</span> <img src="{{ asset('assets/img/live.gif') }}" alt="" height="40px" ></p>
                     </div>
@@ -130,25 +131,22 @@
 
     <script>
         var regions=[
+            @foreach ($attacks as $attack)
+                {
+                    "region_name": "{{ __('content.'.$attack->regions->name) }}",
+                    "region_code": "{{ $attack->regions->code }}",
+                    "deaths": {{ $attack->total_deaths }}
+                },
+            @endforeach
             {
                 "region_name": "{{ __('content.Jaffa') }}",
                 "region_code": "PS-JFA",
-                "deaths": 9794525
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Nazaeth') }}",
                 "region_code": "PS-NAZ",
-                "deaths": 5769750
-            },
-            {
-                "region_name": "{{ __('content.Nablus') }}",
-                "region_code": "PS-NBS",
-                "deaths": 5557276
-            },
-            {
-                "region_name": "{{ __('content.Ramallah') }}",
-                "region_code": "PS-RBH",
-                "deaths": 4999932
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Dead Sea') }}",
@@ -158,42 +156,27 @@
             {
                 "region_name": "{{ __('content.Allyd') }}",
                 "region_code": "PS-ALD",
-                "deaths": 4881756
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Safad') }}",
                 "region_code": "PS-SAF",
-                "deaths": 4881756
-            },
-            {
-                "region_name": "{{ __('content.Jenin') }}",
-                "region_code": "PS-JEN",
-                "deaths": 4377487
-            },
-            {
-                "region_name": "{{ __('content.Bethlehem') }}",
-                "region_code": "PS-BTH",
-                "deaths": 4374052
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Acre') }}",
                 "region_code": "PS-ACE",
-                "deaths": 4050803
-            },
-            {
-                "region_name": "{{ __('content.Tulkarm') }}",
-                "region_code": "PS-TKM",
-                "deaths": 3692828
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Baysan') }}",
                 "region_code": "PS-BSN",
-                "deaths": 1958238
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Tiberias') }}",
                 "region_code": "PS-TBA",
-                "deaths": 1640379
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Lake Tiberias') }}",
@@ -201,74 +184,44 @@
                 "deaths": 0
             },
             {
-                "region_name": "{{ __('content.Hebron') }}",
-                "region_code": "PS-HBN",
-                "deaths": 1565127
-            },
-            {
                 "region_name": "{{ __('content.Beersheba') }}",
                 "region_code": "PS-BSB",
-                "deaths": 1545155
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Khan Yunis') }}",
                 "region_code": "PS-KYS",
-                "deaths": 1312507
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Alramlah') }}",
                 "region_code": "PS-ALR",
-                "deaths": 1221860
-            },
-            {
-                "region_name": "{{ __('content.Gaza') }}",
-                "region_code": "PS-GZA",
-                "deaths": 1039934
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Haifa') }}",
                 "region_code": "PS-HFA",
-                "deaths": 886239
-            },
-            {
-                "region_name": "{{ __('content.Jerusalem') }}",
-                "region_code": "PS-JEM",
-                "deaths": 886239
-            },
-            {
-                "region_name": "{{ __('content.Jericho') }}",
-                "region_code": "PS-JRH",
-                "deaths": 886239
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Salfit') }}",
                 "region_code": "PS-SLT",
-                "deaths": 886239
-            },
-            {
-                "region_name": "{{ __('content.Tubas') }}",
-                "region_code": "PS-TBS",
-                "deaths": 886239
-            },
-            {
-                "region_name": "{{ __('content.Qalqilya') }}",
-                "region_code": "PS-QQA",
-                "deaths": 886239
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Deir El Balah') }}",
                 "region_code": "PS-DEB",
-                "deaths": 886239
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.North Gaza') }}",
                 "region_code": "PS-NGZ",
-                "deaths": 886239
+                "deaths": 0
             },
             {
                 "region_name": "{{ __('content.Rafah') }}",
                 "region_code": "PS-RFH",
-                "deaths": 886239
+                "deaths": 0
             },
         ];
 
@@ -283,7 +236,7 @@
             for(i = 0; i < regions.length; i++) {
 
                 $('#'+ regions[i].region_code)
-                .css({'fill': 'rgba(11, 104, 170,' + regions[i].deaths/highest_value +')'})
+                .css({'fill': 'rgba(11, 104, 170,' + regions[i].deaths/(highest_value/100) +')'})
                 .data('region', regions[i]);
             }
 
@@ -323,6 +276,19 @@
                 $('.region-disabled').css('display','none');
                 $(this).attr('data-display','all');
             }
+        })
+
+        $('#select1').on('change', function(){
+            $('.map-dashboard').find('path').css({
+                'stroke' : 'rgb(247, 247, 247)',
+                'stroke-width:' : '0.400293px',
+            });
+            let value = $(this).val();
+            $('#'+value).css({
+                /* 'fill' : '#00CBAD', */
+                'stroke' : 'red',
+                'stroke-width:' : '1px',
+            });
         })
     </script>
     <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="samehbilal" data-description="Support me on Buy me a coffee!" data-message="{{ __('content.Keep this website running!') }}" data-color="#00CBAD" data-position="Right" data-x_margin="18" data-y_margin="18"></script>

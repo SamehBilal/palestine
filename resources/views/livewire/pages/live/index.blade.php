@@ -18,7 +18,7 @@ new #[Layout('layouts.front')] class extends Component
     {
         $this->live     = Livetracker::findOrFail(1);
         $this->regions  = Region::where('old',0)->get();
-        $this->attacks  = Attack::with('regions')->get();
+        $this->attacks  = Attack::orderBy('total_deaths','desc')->get();
     }
 
     /* #[Rule(['required', 'string'])]
@@ -128,9 +128,9 @@ new #[Layout('layouts.front')] class extends Component
                                     <div class="select-country">
                                         {{-- <label for="select1" class="sr-only">Region</label> --}}
                                         <select class="country" id="select1" name="country" style="width: 164px!Important;">
-                                            @foreach ($regions as $region)
-                                                <option value="{{ $region->code }}" class="{{ $region->name }}" data-image="{{ asset('assets/img/palestine.webp') }}">
-                                                    {{ __('content.'.$region->name) }}
+                                            @foreach ($attacks as $attack)
+                                                <option value="{{ $attack->regions->code }}" class="{{ $attack->regions->name }}" data-image="{{ asset('assets/img/palestine.webp') }}">
+                                                    {{ __('content.'.$attack->regions->name) }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -165,9 +165,9 @@ new #[Layout('layouts.front')] class extends Component
                     <div class="map-status-wrap" id="map-status-report">
                         <div class="map-status-colors">
                             <ul class="colors d-flex">
-                                <li><span class="min"></span>&#60;50k</li>
-                                <li><span class="mid"></span>&#60;100k</li>
-                                <li><span class="max"></span>&#62;100k</li>
+                                <li><span class="min"></span>&#60;10</li>
+                                <li><span class="mid"></span>&#60;100</li>
+                                <li><span class="max"></span>&#62;1000</li>
                             </ul>
                         </div>
 
@@ -317,10 +317,14 @@ new #[Layout('layouts.front')] class extends Component
 
                         <div class="cases-by-country__bottom">
                             <ul class="cases-country-lists">
-                                @foreach ($regions as $key => $region)
-                                    <li class="{{ $key > 11 ? "region-disabled":"" }}"  style='{{  $key > 11 ? "display:none;":"" }}'>
-                                        <h6 class="country-name">{{ __('content.'.$region->name) }}</h6>
-                                        <span class="cases-no infected">520</span>
+                                <li class="country-search">
+                                    <h6 class="country-name">{{ __('content.All Regions') }}</h6>
+                                    <span class="cases-no infected">{{ $attacks->take(2)->sum('total_deaths'); }}</span>
+                                </li>
+                                @foreach ($attacks as $key => $attack)
+                                    <li class="country-search {{ $key > 10 ? "region-disabled":"" }}"  style='{{  $key > 10 ? "display:none;":"" }}'>
+                                        <h6 class="country-name">{{ __('content.'.$attack->regions->name) }}</h6>
+                                        <span class="cases-no infected">{{ $attack->total_deaths }}</span>
                                     </li>
                                 @endforeach
                             </ul>
@@ -359,7 +363,7 @@ new #[Layout('layouts.front')] class extends Component
                                         <td>{{ number_format( $attack->women_deaths) }}</td>
                                         <td>{{ number_format( $attack->children_deaths) }}</td>
                                         <td>{{ number_format( $attack->elders_deaths) }}</td>
-                                        <td>{{ number_format(($attack->total_deaths/$attack->total_injuries)*100) }}%</td>
+                                        <td>{{ number_format($attack->total_injuries ? ($attack->total_deaths/$attack->total_injuries)*100 :'100') }}%</td>
                                         <td>{{ number_format( $attack->total_destroyed_residential_units) }}</td>
                                         <td>{{ number_format( $attack->total_displaced) }}</td>
                                     </tr>

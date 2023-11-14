@@ -305,14 +305,35 @@ const reportListView = async (selectorID, search) => {
     let table = selectorID.querySelector('table');
 
     jQuery(table).DataTable({
-        "searching": !!search
+        "searching": !!search,
+        order: false
     });
 }
 
 let table = document.querySelector('table');
 
-jQuery(table).DataTable({
+var otable = jQuery(table).DataTable({
     /* "searching": !!'gaza' */
+    order: false
+});
+
+$('.country-search').click(function () {
+    var region = $(this).find('.country-name').text();
+    if(region != 'All Regions' && region != 'كل المناطق')
+    {
+        otable.search(region).draw();
+    }else{
+        otable.search('').draw();
+    }
+});
+
+// EDIT: Capture enter press as well
+$("#DataTables_Table_0_filter").find('input').keypress(function(e) {
+    // You can use $(this) here, since this once again refers to your text input
+    if(e.which === 13) {
+        e.preventDefault(); // Prevent form submit
+        otable.search($(this).val()).draw();
+    }
 });
 
 /**

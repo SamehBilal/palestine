@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('total_destroyed_residential_units')->nullable();
             $table->unsignedBigInteger('other_side_deaths')->nullable();
             $table->unsignedBigInteger('other_side_injuries')->nullable();
+            $table->unsignedBigInteger('losts')->nullable();
             $table->unsignedBigInteger('duration')->nullable();
             //$table->dateTime('date_of_occurance')->default(now());
             $table->timestamp('date_of_occurance')->useCurrent();

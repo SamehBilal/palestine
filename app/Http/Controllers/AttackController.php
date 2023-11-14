@@ -60,6 +60,7 @@ class AttackController extends Controller
         $model->children_deaths                     = (int)$request->children_deaths;
         $model->elders_deaths                       = (int)$request->elders_deaths;
         $model->total_injuries                      = (int)$request->total_injuries;
+        $model->losts                               = (int)$request->losts;
         $model->total_displaced                     = (int)$request->total_displaced;
         $model->total_destroyed_residential_units   = (int)$request->total_destroyed_residential_units;
         $model->other_side_deaths                   = (int)$request->other_side_deaths;
