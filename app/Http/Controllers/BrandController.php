@@ -55,7 +55,12 @@ class BrandController extends Controller
     {
         //dd($request->all());
         $model->name            = $request->name;
-        $model->photo           = $request->photo;
+        $model->ar_name         = $request->ar_name;
+        $model->logo            = $request->logo;
+        $model->first_letter    = $request->first_letter;
+        $model->first_ar_letter = $request->first_ar_letter;
+        $model->alternative_id  = $request->alternative_id;
+        $model->made_by         = $request->made_by;
         /* $model->slug = $this->sluger('name', $request, $model, $mod);
         $model->index = (bool)$request->index; */
     }

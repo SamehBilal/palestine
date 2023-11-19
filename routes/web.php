@@ -32,7 +32,13 @@ Route::prefix('{locale}')
             ->name('map');
 
     Volt::route('support', 'pages.support.index')
-            ->name('support');
+            ->name('support.brands');
+
+    Volt::route('support/barcodes', 'pages.support.barcodes')
+    ->name('support.barcodes');
+
+    Volt::route('support/celebrities', 'pages.support.celebrities')
+    ->name('support.celebrities');
 
     require __DIR__.'/auth.php';
     //require __DIR__.'/admin.php';

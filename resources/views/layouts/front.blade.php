@@ -71,7 +71,7 @@
                             <ul class="nav">
                                 <li><a href="{{ route('live') }}" {{-- wire:navigate --}}>{{ __('content.Live Tracker') }}</a></li>
                                 {{-- <li><a href="{{ route('map') }}" wire:navigate>{{ __('content.Original Map') }}</a></li> --}}
-                                <li><a href="{{ route('support') }}" {{-- wire:navigate --}}>{{ __('content.Support') }}{{-- {{ __('content.Support the case') }} --}}</a></li>
+                                <li><a href="{{ route('support.brands') }}" {{-- wire:navigate --}}>{{ __('content.Support') }}{{-- {{ __('content.Support the case') }} --}}</a></li>
                                 <li><a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => app()->getLocale() == 'ar' ? 'en':'ar']) }}" class="language-link" {{-- wire:navigate --}}>{{ strtoupper(app()->getLocale()) == 'AR' ? 'EN':'AR' }}</a></li>
                                 {{-- <x-front.languages-navigation /> --}}
                             </ul>
@@ -99,10 +99,7 @@
 
     <!--=======================Javascript============================-->
     <!-- build:js assets/js/app.min.js -->
-    <!--=== Modernizr Min Js ===-->
-    <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
-    <!--=== jQuery Min Js ===-->
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+
     <!--=== jQuery Migration Min Js ===-->
     <script src="{{ asset('assets/js/jquery-migrate.min.js') }}"></script>
     <!--=== Popper Min Js ===-->

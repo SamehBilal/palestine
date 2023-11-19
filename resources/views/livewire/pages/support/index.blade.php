@@ -5,32 +5,18 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Rule;
 use Livewire\Volt\Component;
+use App\Models\Brand;
 
 new #[Layout('layouts.front')] class extends Component
 {
-    /* #[Rule(['required', 'string'])]
-    public string $password = '';
-
-    public function confirmPassword(): void
+    public $letters = '';
+    public $brands = '';
+    public function mount(): void
     {
-        $this->validate();
-
-        if (! auth()->guard('web')->validate([
-            'email' => auth()->user()->email,
-            'password' => $this->password,
-        ])) {
-            throw ValidationException::withMessages([
-                'password' => __('auth.password'),
-            ]);
-        }
-
-        session(['auth.password_confirmed_at' => time()]);
-
-        $this->redirect(
-            session('url.intended', RouteServiceProvider::HOME),
-            navigate: true
-        );
-    } */
+        $query = Brand::where('alternative_id', '<>',0)->orderBy('first_letter','ASC');
+        $this->letters  = $query->distinct('first_letter')->pluck('first_letter');
+        $this->brands   = $query->get();
+    }
 }; ?>
 <div>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/brands/css/demo.css') }}" />
@@ -45,30 +31,29 @@ new #[Layout('layouts.front')] class extends Component
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/brands/css/component2.css') }}" />
 
     <style>
-
-
-          h1 {
-            font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+        h1 {
             font-size: 48px;
             font-weight: bold;
-          }
+            color: #fff;
+        }
 
-          .btn-glossary-filter {
+        .btn-glossary-filter {
             margin: 1px 1px 15px;
             padding: 0 5px;
-          }
+        }
 
-          .glossary-item {
+        .glossary-item {
             margin: 15px 0;
-          }
-          .glossary-item h2 {
+        }
+        .glossary-item h2 {
+            color: #fff;
             border-bottom: 1px dotted #fff;
-          }
+        }
 
-          #search-group {
+        #search-group {
             position: relative;
-          }
-          #search-group .glossary-search-icon {
+        }
+        #search-group .glossary-search-icon {
             position: absolute;
             z-index: 10;
             top: 10px;
@@ -76,18 +61,21 @@ new #[Layout('layouts.front')] class extends Component
             width: 25px;
             height: 25px;
             transition: all 0.33s;
-          }
-          #search-group .glossary-search-input {
+        }
+        #search-group .glossary-search-input {
             padding-left: 40px;
             transition: all 0.33s;
-          }
-          #search-group .glossary-search-input:focus {
+        }
+        #search-group .glossary-search-input:focus {
             padding-left: 15px;
-          }
-          #search-group .glossary-search-input:focus ~ .glossary-search-icon {
+        }
+        #search-group .glossary-search-input:focus ~ .glossary-search-icon {
             left: calc(100% - 40px);
-          }
+        }
     </style>
+
+    @include('livewire.pages.support.brands', ['brands' => $brands])
+
     <script src="{{ asset('assets/brands/js/modernizr-2.6.2.min.js') }}"></script>
 
     <script type="text/javascript">
@@ -104,32 +92,33 @@ new #[Layout('layouts.front')] class extends Component
     <div class="container">
 
         <div class="component">
-            <h2>Support</h2>
+            <h2>{{ __('content.Support') }}</h2>
             <!-- Start Nav Structure -->
-            <button class="cn-button" id="cn-button">Menu</button>
+            <button class="cn-button" id="cn-button">{{ __('content.Menu') }}</button>
             <div class="cn-wrapper" id="cn-wrapper">
                 <ul>
-                    <li><a href="#"><span>Brands</span></a></li>
-                    <li><a href="#"><span>Celebrities</span></a></li>
-                    <li><a href="#"><span>Hashtags</span></a></li>
-                    <li><a href="#"><span>Barcodes</span></a></li>
-                    <li><a href="#"><span>Post Encryption</span></a></li>
-                    <li><a href="#"><span>Gallery</span></a></li>
-                    <li><a href="#"><span>Donations</span></a></li>
+                    <li><a href="{{ route('support.brands') }}"><span>{{ __('content.Brands') }}</span></a></li>
+                    <li><a href="#"><span>{{ __('content.Celebrities') }}</span></a></li>
+                    <li><a href="#"><span>{{ __('content.Hashtags') }}</span></a></li>
+                    <li><a href="{{ route('support.barcodes') }}"><span>{{ __('content.Barcodes') }}</span></a></li>
+                    <li><a href="#"><span>{{ __('content.Encryption') }}</span></a></li>
+                    <li><a href="#"><span>{{ __('content.Gallery') }}</span></a></li>
+                    <li><a href="#"><span>{{ __('content.Donations') }}</span></a></li>
                  </ul>
             </div>
             <!-- End of Nav Structure -->
         </div>
 
-        <section>
+        <section dir="ltr">
 
             <div class="row">
                 <div class="col-12 text-center">
-                  <h1>Brands</h1>
+                  <h1>{{ __('content.Brands') }}</h1>
                 </div>
 
                 <div class="col-12 text-center">
                   <button class="btn btn-small btn-secondary btn-glossary-filter">A-Z</button>
+                  <button class="btn btn-small btn-secondary btn-glossary-filter">7</button>
                   <button class="btn btn-small btn-secondary btn-glossary-filter">A</button>
                   <button class="btn btn-small btn-secondary btn-glossary-filter">B</button>
                   <button class="btn btn-small btn-secondary btn-glossary-filter">C</button>
@@ -173,602 +162,39 @@ new #[Layout('layouts.front')] class extends Component
 
               <div class="row" id="glossary-grid">
 
-                <div class="col-12 glossary-item glossary-filter_A-Z glossary-filter_A">
-                  <h2>A</h2>
-                </div>
+                @foreach ($letters as $letter)
 
-                <div class="col-12 glossary-item glossary-filter_A-Z glossary-filter_A">
-                    <ul class="ch-grid">
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-1"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Mouse</h3>
-                                        <p>by Alexander Shumihin <a href="http://drbl.in/eAoj">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-2"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>You</h3>
-                                        <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-2"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>You</h3>
-                                        <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-2"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>You</h3>
-                                        <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                    </ul>
-                </div>
+                    <div class="col-12 glossary-item glossary-filter_A-Z glossary-filter_{{ strtoupper($letter) }}">
+                    <h2>{{ strtoupper($letter) }}</h2>
+                    </div>
 
-                <div class="col-12 glossary-item glossary-filter_A-Z glossary-filter_B">
-                  <h2>B</h2>
-                </div>
-
-                <div class="col-12 glossary-item glossary-filter_A-Z glossary-filter_B">
-                    <ul class="ch-grid">
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-1"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Mouse</h3>
-                                        <p>by Alexander Shumihin <a href="http://drbl.in/eAoj">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-2"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>You</h3>
-                                        <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-2"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>You</h3>
-                                        <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-2"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>You</h3>
-                                        <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-2"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>You</h3>
-                                        <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-2"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>You</h3>
-                                        <p>by Zoe Ingram <a href="http://drbl.in/eCcV">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                        <li>
-                            <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back">
-                                        <!-- <h3>Love</h3>
-                                        <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p> -->
-                                    </div>
-                                </div>
-                            </div><p class="card-title" >Mcdonald's</p>
-                        </li>
-                    </ul>
-                </div>
+                    <div class="col-12 glossary-item glossary-filter_A-Z glossary-filter_{{ strtoupper($letter) }}">
+                        <ul class="ch-grid">
+                            @foreach ($brands as $brand)
+                                @if ( $brand->first_letter == $letter)
+                                    <li class="card-title-{{ $brand->id }}">
+                                        <div class="ch-item">
+                                            <div class="ch-info">
+                                                <div class="ch-info-front ch-img-{{ $brand->id }}"></div>
+                                                <div class="ch-info-back ch-img-back-{{ $brand->id }}">
+                                                    <!-- <h3>Mouse</h3>
+                                                    <p>by Alexander Shumihin <a href="http://drbl.in/eAoj">View on Dribbble</a></p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="card-title card-front" ><span>{{ $brand->name }}</span></p>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                @endforeach
 
               </div>
         </section>
     </div><!-- /container -->
     <script src="{{ asset('assets/brands/js/polyfills.js') }}"></script>
-    <script src="{{ asset('assets/brands/js/demo2.js') }}"></script>
+    <script src="{{ asset('assets/brands/js/'.__('content.demo2').'.js') }}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>

@@ -261,4 +261,13 @@ return [
     'Hospitals Out Of Service'                              => 'مستشفيات خارج الخدمة',
     'Out Of'                                                => 'من إجمالي',
     'Closed Health Care Centers'                            => 'مراكز الرعاية الصحية المغلقة',
+    'Menu'                                                  => 'القائمة',
+    'Brands'                                                => 'الشركات',
+    'Celebrities'                                           => 'المشاهير',
+    'Hashtags'                                              => 'الهاشتاج',
+    'Barcodes'                                              => 'الأكواد',
+    'Encryption'                                            => 'التشفير',
+    'Gallery'                                               => 'معرض الصور',
+    'Donations'                                             => 'التبرعات',
+    'demo2'                                                 => 'demo2-ar',
 ];

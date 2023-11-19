@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('ar_name');
+            $table->string('first_ar_letter')->nullable();
             $table->string('logo')->default('logo.png');
             $table->string('first_letter')->nullable();
             $table->string('video')->default('video.gif');

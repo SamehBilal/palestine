@@ -258,4 +258,13 @@ return [
     'Hospitals Out Of Service'                          => 'Hospitals Out Of Service',
     'Out Of'                                            => 'Out Of',
     'Closed Health Care Centers'                        => 'Closed Health Care Centers',
+    'Menu'                                              => 'Menu',
+    'Brands'                                            => 'Brands',
+    'Celebrities'                                       => 'Celebrities',
+    'Hashtags'                                          => 'Hashtags',
+    'Barcodes'                                          => 'Barcodes',
+    'Encryption'                                        => 'Encryption',
+    'Gallery'                                           => 'Gallery',
+    'Donations'                                         => 'Donations',
+    'demo2'                                             => 'demo2',
 ];

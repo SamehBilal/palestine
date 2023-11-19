@@ -473,4 +473,7 @@ new #[Layout('layouts.front')] class extends Component
 </div>
 
 
-
+<!--=== Modernizr Min Js ===-->
+<script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+<!--=== jQuery Min Js ===-->
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>

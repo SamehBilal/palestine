@@ -15,11 +15,16 @@ class CelebritySeeder extends Seeder
     {
         DB::table('celebrities')->delete();
         $celebrities = [
-            [
-                'name'              => 'Mohamed Sallam',
-                'photo'             => 'ms.webp',
-                'country_id'        => 64,
-            ],
+            [ 'name' => 'Mohamed Sallam', 'ar_name' => 'ماكدونالدز',   'first_ar_letter' => 'م',   'first_letter' => 'm', 'words' => '', 'photo' => 'ms.webp', 'country_id' => 64],
+            [ 'name' => 'Bassem Yossef',  'ar_name' => 'ماكدونالدز',   'first_ar_letter' => 'م',   'first_letter' => 'b', 'words' => '', 'photo' => 'by.webp', 'country_id' => 64],
+            [ 'name' => 'Bassem Yossef',  'ar_name' => 'ماكدونالدز',   'first_ar_letter' => 'م',   'first_letter' => 'b', 'words' => '', 'photo' => 'by.webp', 'country_id' => 64],
+            [ 'name' => 'Bassem Yossef',  'ar_name' => 'ماكدونالدز',   'first_ar_letter' => 'م',   'first_letter' => 'b', 'words' => '', 'photo' => 'by.webp', 'country_id' => 64],
+            [ 'name' => 'Bassem Yossef',  'ar_name' => 'ماكدونالدز',   'first_ar_letter' => 'م',   'first_letter' => 'b', 'words' => '', 'photo' => 'by.webp', 'country_id' => 64],
+            [ 'name' => 'Bassem Yossef',  'ar_name' => 'ماكدونالدز',   'first_ar_letter' => 'م',   'first_letter' => 'b', 'words' => '', 'photo' => 'by.webp', 'country_id' => 64],
+            [ 'name' => 'Bassem Yossef',  'ar_name' => 'ماكدونالدز',   'first_ar_letter' => 'م',   'first_letter' => 'b', 'words' => '', 'photo' => 'by.webp', 'country_id' => 64],
+            [ 'name' => 'Bassem Yossef',  'ar_name' => 'ماكدونالدز',   'first_ar_letter' => 'م',   'first_letter' => 'b', 'words' => '', 'photo' => 'by.webp', 'country_id' => 64],
+            [ 'name' => 'Bassem Yossef',  'ar_name' => 'ماكدونالدز',   'first_ar_letter' => 'م',   'first_letter' => 'b', 'words' => '', 'photo' => 'by.webp', 'country_id' => 64],
+            [ 'name' => 'Bassem Yossef',  'ar_name' => 'ماكدونالدز',   'first_ar_letter' => 'م',   'first_letter' => 'b', 'words' => '', 'photo' => 'by.webp', 'country_id' => 64],
         ];
 
         DB::table('celebrities')->insert($celebrities);

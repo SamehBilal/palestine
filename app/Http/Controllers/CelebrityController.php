@@ -55,7 +55,11 @@ class CelebrityController extends Controller
     {
         //dd($request->all());
         $model->name            = $request->name;
+        $model->ar_name         = $request->ar_name;
+        $model->first_letter    = $request->first_letter;
+        $model->first_ar_letter = $request->first_ar_letter;
         $model->photo           = $request->photo;
+        $model->words           = $request->words;
         $model->country_id      = (int)$request->country_id;
         /* $model->slug = $this->sluger('name', $request, $model, $mod);
         $model->index = (bool)$request->index; */

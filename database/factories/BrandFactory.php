@@ -19,7 +19,9 @@ class BrandFactory extends Factory
     {
         return [
             'name'                      => fake()->name(),
+            'ar_name'                   => fake()->name(),
             'first_letter'              => Str::random(1),
+            'first_ar_letter'           => Str::random(1),
             'alternative_id'            => $this->faker->randomElement([1,2,3,4,5]),
             'made_by'                   => $this->faker->randomElement([1,2,3,4,5]),
         ];
