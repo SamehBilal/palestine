@@ -199,7 +199,7 @@ new #[Layout('layouts.front')] class extends Component
         78% {
             opacity: 1;
         }
-        93% {
+        /*93% {
             opacity: 0;
         }
         99.5% {
@@ -209,10 +209,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(1) {
-        animation: bar-1 5s ease-out infinite forwards;
+        animation: bar-1 5s ease-out  forwards;
         }
 
         @keyframes bar-2 {
@@ -225,7 +225,7 @@ new #[Layout('layouts.front')] class extends Component
         81% {
             opacity: 1;
         }
-        92% {
+        /*92% {
             opacity: 0;
         }
         99.5% {
@@ -235,10 +235,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(2) {
-        animation: bar-2 5s ease-out infinite forwards;
+        animation: bar-2 5s ease-out  forwards;
         }
 
         @keyframes bar-3 {
@@ -251,7 +251,7 @@ new #[Layout('layouts.front')] class extends Component
         79% {
             opacity: 1;
         }
-        92% {
+        /*92% {
             opacity: 0;
         }
         99.5% {
@@ -261,10 +261,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(3) {
-        animation: bar-3 5s ease-out infinite forwards;
+        animation: bar-3 5s ease-out  forwards;
         }
 
         @keyframes bar-4 {
@@ -277,7 +277,7 @@ new #[Layout('layouts.front')] class extends Component
         80% {
             opacity: 1;
         }
-        93% {
+        /*93% {
             opacity: 0;
         }
         99.5% {
@@ -287,10 +287,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(4) {
-        animation: bar-4 5s ease-out infinite forwards;
+        animation: bar-4 5s ease-out  forwards;
         }
 
         @keyframes bar-5 {
@@ -303,7 +303,7 @@ new #[Layout('layouts.front')] class extends Component
         78% {
             opacity: 1;
         }
-        92% {
+        /*92% {
             opacity: 0;
         }
         99.5% {
@@ -313,10 +313,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(5) {
-        animation: bar-5 5s ease-out infinite forwards;
+        animation: bar-5 5s ease-out  forwards;
         }
 
         @keyframes bar-6 {
@@ -329,7 +329,7 @@ new #[Layout('layouts.front')] class extends Component
         79% {
             opacity: 1;
         }
-        93% {
+        /*93% {
             opacity: 0;
         }
         99.5% {
@@ -339,10 +339,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(6) {
-        animation: bar-6 5s ease-out infinite forwards;
+        animation: bar-6 5s ease-out  forwards;
         }
 
         @keyframes bar-7 {
@@ -355,7 +355,7 @@ new #[Layout('layouts.front')] class extends Component
         72% {
             opacity: 1;
         }
-        93% {
+        /*93% {
             opacity: 0;
         }
         99.5% {
@@ -365,10 +365,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(7) {
-        animation: bar-7 5s ease-out infinite forwards;
+        animation: bar-7 5s ease-out  forwards;
         }
 
         @keyframes bar-8 {
@@ -381,7 +381,7 @@ new #[Layout('layouts.front')] class extends Component
         79% {
             opacity: 1;
         }
-        89% {
+        /* 89% {
             opacity: 0;
         }
         99.5% {
@@ -391,10 +391,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(8) {
-        animation: bar-8 5s ease-out infinite forwards;
+        animation: bar-8 5s ease-out  forwards;
         }
 
         @keyframes bar-9 {
@@ -407,7 +407,7 @@ new #[Layout('layouts.front')] class extends Component
         78% {
             opacity: 1;
         }
-        90% {
+        /* 90% {
             opacity: 0;
         }
         99.5% {
@@ -417,10 +417,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(9) {
-        animation: bar-9 5s ease-out infinite forwards;
+        animation: bar-9 5s ease-out  forwards;
         }
 
         @keyframes bar-10 {
@@ -433,7 +433,7 @@ new #[Layout('layouts.front')] class extends Component
         75% {
             opacity: 1;
         }
-        92% {
+        /*92% {
             opacity: 0;
         }
         99.5% {
@@ -443,10 +443,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(10) {
-        animation: bar-10 5s ease-out infinite forwards;
+        animation: bar-10 5s ease-out  forwards;
         }
 
         @keyframes bar-11 {
@@ -459,7 +459,7 @@ new #[Layout('layouts.front')] class extends Component
         80% {
             opacity: 1;
         }
-        93% {
+        /*93% {
             opacity: 0;
         }
         99.5% {
@@ -469,10 +469,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(11) {
-        animation: bar-11 5s ease-out infinite forwards;
+        animation: bar-11 5s ease-out  forwards;
         }
 
         @keyframes bar-12 {
@@ -485,7 +485,7 @@ new #[Layout('layouts.front')] class extends Component
         75% {
             opacity: 1;
         }
-        92% {
+        /*92% {
             opacity: 0;
         }
         99.5% {
@@ -495,10 +495,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(12) {
-        animation: bar-12 5s ease-out infinite forwards;
+        animation: bar-12 5s ease-out  forwards;
         }
 
         @keyframes bar-13 {
@@ -511,7 +511,7 @@ new #[Layout('layouts.front')] class extends Component
         72% {
             opacity: 1;
         }
-        90% {
+        /* 90% {
             opacity: 0;
         }
         99.5% {
@@ -521,10 +521,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(13) {
-        animation: bar-13 5s ease-out infinite forwards;
+        animation: bar-13 5s ease-out  forwards;
         }
 
         @keyframes bar-14 {
@@ -537,7 +537,7 @@ new #[Layout('layouts.front')] class extends Component
         74% {
             opacity: 1;
         }
-        93% {
+        /*93% {
             opacity: 0;
         }
         99.5% {
@@ -547,10 +547,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(14) {
-        animation: bar-14 5s ease-out infinite forwards;
+        animation: bar-14 5s ease-out  forwards;
         }
 
         @keyframes bar-15 {
@@ -563,7 +563,7 @@ new #[Layout('layouts.front')] class extends Component
         75% {
             opacity: 1;
         }
-        88% {
+        /* 88% {
             opacity: 0;
         }
         99.5% {
@@ -573,10 +573,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(15) {
-        animation: bar-15 5s ease-out infinite forwards;
+        animation: bar-15 5s ease-out  forwards;
         }
 
         @keyframes bar-16 {
@@ -589,7 +589,7 @@ new #[Layout('layouts.front')] class extends Component
         75% {
             opacity: 1;
         }
-        91% {
+        /* 91% {
             opacity: 0;
         }
         99.5% {
@@ -599,10 +599,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(16) {
-        animation: bar-16 5s ease-out infinite forwards;
+        animation: bar-16 5s ease-out  forwards;
         }
 
         @keyframes bar-17 {
@@ -615,7 +615,7 @@ new #[Layout('layouts.front')] class extends Component
         79% {
             opacity: 1;
         }
-        88% {
+        /* 88% {
             opacity: 0;
         }
         99.5% {
@@ -625,10 +625,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(17) {
-        animation: bar-17 5s ease-out infinite forwards;
+        animation: bar-17 5s ease-out  forwards;
         }
 
         @keyframes bar-18 {
@@ -641,7 +641,7 @@ new #[Layout('layouts.front')] class extends Component
         77% {
             opacity: 1;
         }
-        90% {
+        /* 90% {
             opacity: 0;
         }
         99.5% {
@@ -651,10 +651,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(18) {
-        animation: bar-18 5s ease-out infinite forwards;
+        animation: bar-18 5s ease-out  forwards;
         }
 
         @keyframes bar-19 {
@@ -667,7 +667,7 @@ new #[Layout('layouts.front')] class extends Component
         74% {
             opacity: 1;
         }
-        89% {
+        /* 89% {
             opacity: 0;
         }
         99.5% {
@@ -677,10 +677,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(19) {
-        animation: bar-19 5s ease-out infinite forwards;
+        animation: bar-19 5s ease-out  forwards;
         }
 
         @keyframes bar-20 {
@@ -693,7 +693,7 @@ new #[Layout('layouts.front')] class extends Component
         79% {
             opacity: 1;
         }
-        92% {
+        /*92% {
             opacity: 0;
         }
         99.5% {
@@ -703,10 +703,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(20) {
-        animation: bar-20 5s ease-out infinite forwards;
+        animation: bar-20 5s ease-out  forwards;
         }
 
         @keyframes bar-21 {
@@ -719,7 +719,7 @@ new #[Layout('layouts.front')] class extends Component
         78% {
             opacity: 1;
         }
-        91% {
+        /* 91% {
             opacity: 0;
         }
         99.5% {
@@ -729,10 +729,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(21) {
-        animation: bar-21 5s ease-out infinite forwards;
+        animation: bar-21 5s ease-out  forwards;
         }
 
         @keyframes bar-22 {
@@ -745,7 +745,7 @@ new #[Layout('layouts.front')] class extends Component
         72% {
             opacity: 1;
         }
-        93% {
+        /*93% {
             opacity: 0;
         }
         99.5% {
@@ -755,10 +755,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(22) {
-        animation: bar-22 5s ease-out infinite forwards;
+        animation: bar-22 5s ease-out  forwards;
         }
 
         @keyframes bar-23 {
@@ -771,7 +771,7 @@ new #[Layout('layouts.front')] class extends Component
         74% {
             opacity: 1;
         }
-        88% {
+        /* 88% {
             opacity: 0;
         }
         99.5% {
@@ -781,10 +781,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(23) {
-        animation: bar-23 5s ease-out infinite forwards;
+        animation: bar-23 5s ease-out  forwards;
         }
 
         @keyframes bar-24 {
@@ -797,7 +797,7 @@ new #[Layout('layouts.front')] class extends Component
         76% {
             opacity: 1;
         }
-        90% {
+        /* 90% {
             opacity: 0;
         }
         99.5% {
@@ -807,10 +807,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(24) {
-        animation: bar-24 5s ease-out infinite forwards;
+        animation: bar-24 5s ease-out  forwards;
         }
 
         @keyframes bar-25 {
@@ -823,7 +823,7 @@ new #[Layout('layouts.front')] class extends Component
         73% {
             opacity: 1;
         }
-        91% {
+        /* 91% {
             opacity: 0;
         }
         99.5% {
@@ -833,10 +833,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(25) {
-        animation: bar-25 5s ease-out infinite forwards;
+        animation: bar-25 5s ease-out  forwards;
         }
 
         @keyframes bar-26 {
@@ -849,7 +849,7 @@ new #[Layout('layouts.front')] class extends Component
         73% {
             opacity: 1;
         }
-        92% {
+        /*92% {
             opacity: 0;
         }
         99.5% {
@@ -859,10 +859,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(26) {
-        animation: bar-26 5s ease-out infinite forwards;
+        animation: bar-26 5s ease-out  forwards;
         }
 
         @keyframes bar-27 {
@@ -875,7 +875,7 @@ new #[Layout('layouts.front')] class extends Component
         80% {
             opacity: 1;
         }
-        92% {
+        /*92% {
             opacity: 0;
         }
         99.5% {
@@ -885,10 +885,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(27) {
-        animation: bar-27 5s ease-out infinite forwards;
+        animation: bar-27 5s ease-out  forwards;
         }
 
         @keyframes bar-28 {
@@ -901,7 +901,7 @@ new #[Layout('layouts.front')] class extends Component
         81% {
             opacity: 1;
         }
-        89% {
+        /* 89% {
             opacity: 0;
         }
         99.5% {
@@ -911,10 +911,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(28) {
-        animation: bar-28 5s ease-out infinite forwards;
+        animation: bar-28 5s ease-out  forwards;
         }
 
         @keyframes bar-29 {
@@ -927,7 +927,7 @@ new #[Layout('layouts.front')] class extends Component
         76% {
             opacity: 1;
         }
-        92% {
+        /*92% {
             opacity: 0;
         }
         99.5% {
@@ -937,10 +937,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        }*/
         }
         .barcode > div:nth-child(29) {
-        animation: bar-29 5s ease-out infinite forwards;
+        animation: bar-29 5s ease-out  forwards;
         }
 
         @keyframes bar-30 {
@@ -953,7 +953,7 @@ new #[Layout('layouts.front')] class extends Component
         73% {
             opacity: 1;
         }
-        88% {
+       /*  88% {
             opacity: 0;
         }
         99.5% {
@@ -963,10 +963,10 @@ new #[Layout('layouts.front')] class extends Component
         100% {
             transform: scaleY(0);
             opacity: 0;
-        }
+        } */
         }
         .barcode > div:nth-child(30) {
-        animation: bar-30 5s ease-out infinite forwards;
+        animation: bar-30 5s ease-out  forwards;
         }
     </style>
 
