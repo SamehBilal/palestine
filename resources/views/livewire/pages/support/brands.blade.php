@@ -1,6 +1,8 @@
 <style>
+
     @foreach ($brands as $brand)
-        .ch-img-{{ $brand->id }} {
+
+    .ch-img-{{ $brand->id }} {
             background-image: url({{ asset("assets/img/brands/{$brand->logo}") }});
             background-position: center;
             background-repeat: no-repeat;
@@ -19,7 +21,7 @@
         }
 
         .card-title-{{ $brand->id }}:hover p:before {
-            content: "{{ $brand->child?->name }}";
+            content: "{{ app()->getLocale() == 'ar' ? $brand->child?->ar_name:$brand->child?->name }}";
         }
     @endforeach
 </style>

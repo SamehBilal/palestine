@@ -26,19 +26,19 @@ Route::prefix('{locale}')
     Route::view('/', 'landing')->name('index');
 
     Volt::route('live-tracker', 'pages.live.index')
-            ->name('live');
+        ->name('live');
 
     Volt::route('map', 'pages.map.index')
-            ->name('map');
+        ->name('map');
 
     Volt::route('support', 'pages.support.index')
-            ->name('support.brands');
+        ->name('support.brands');
 
     Volt::route('support/barcodes', 'pages.support.barcodes')
-    ->name('support.barcodes');
+        ->name('support.barcodes');
 
-    Volt::route('support/celebrities', 'pages.support.celebrities')
-    ->name('support.celebrities');
+    /* Volt::route('support/celebrities', 'pages.support.celebrities')
+        ->name('support.celebrities'); */
 
     require __DIR__.'/auth.php';
     //require __DIR__.'/admin.php';

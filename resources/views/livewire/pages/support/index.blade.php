@@ -13,8 +13,8 @@ new #[Layout('layouts.front')] class extends Component
     public $brands = '';
     public function mount(): void
     {
-        $query = Brand::where('alternative_id', '<>',0)->orderBy('first_letter','ASC');
-        $this->letters  = $query->distinct('first_letter')->pluck('first_letter');
+        $query          = app()->getLocale() == 'ar' ? Brand::where('alternative_id', '<>',0)->orderBy('first_ar_letter','ASC'):Brand::where('alternative_id', '<>',0)->orderBy('first_letter','ASC');
+        $this->letters  = app()->getLocale() == 'ar' ? $query->distinct('first_ar_letter')->pluck('first_ar_letter'):$query->distinct('first_letter')->pluck('first_letter');
         $this->brands   = $query->get();
     }
 }; ?>
@@ -27,7 +27,6 @@ new #[Layout('layouts.front')] class extends Component
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/brands/css/style7.css') }}" />
     <script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
-    <!--[if lte IE 8]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/brands/css/component2.css') }}" />
 
     <style>
@@ -98,80 +97,56 @@ new #[Layout('layouts.front')] class extends Component
             <div class="cn-wrapper" id="cn-wrapper">
                 <ul>
                     <li><a href="{{ route('support.brands') }}"><span>{{ __('content.Brands') }}</span></a></li>
-                    <li><a href="#"><span>{{ __('content.Celebrities') }}</span></a></li>
-                    <li><a href="#"><span>{{ __('content.Hashtags') }}</span></a></li>
                     <li><a href="{{ route('support.barcodes') }}"><span>{{ __('content.Barcodes') }}</span></a></li>
-                    <li><a href="#"><span>{{ __('content.Encryption') }}</span></a></li>
-                    <li><a href="#"><span>{{ __('content.Gallery') }}</span></a></li>
-                    <li><a href="#"><span>{{ __('content.Donations') }}</span></a></li>
+                    <li><a href="#"><span>{{ __('content.Celebrities') }}  <br> <small class="badge badge-info">( {{ __('content.Soon') }} )</small></span></a></li>
+                    <li><a href="#"><span>{{ __('content.Hashtags') }}  <br> <small class="badge badge-info">( {{ __('content.Soon') }} )</small></span></a></li>
+                    <li><a href="#"><span>{{ __('content.Encryption') }}  <br><small class="badge badge-info">( {{ __('content.Soon') }} )</small></span></a></li>
+                    <li><a href="#"><span>{{ __('content.Gallery') }}  <br><small class="badge badge-info">( {{ __('content.Soon') }} )</small></span></a></li>
+                    <li><a href="#"><span>{{ __('content.Donations') }}  <br><small class="badge badge-info">( {{ __('content.Soon') }} )</small></span></a></li>
                  </ul>
             </div>
             <!-- End of Nav Structure -->
         </div>
 
-        <section dir="ltr">
+        <section >
 
             <div class="row">
                 <div class="col-12 text-center">
-                  <h1>{{ __('content.Brands') }}</h1>
+                    <h1>{{ __('content.Brands') }}</h1>
                 </div>
 
                 <div class="col-12 text-center">
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">A-Z</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">7</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">A</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">B</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">C</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">D</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">E</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">F</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">G</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">H</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">I</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">J</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">K</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">L</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">M</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">N</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">O</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">P</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">Q</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">R</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">S</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">T</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">U</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">V</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">W</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">X</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">Y</button>
-                  <button class="btn btn-small btn-secondary btn-glossary-filter">Z</button>
+                    <button class="btn btn-small btn-secondary btn-glossary-filter">{{ app()->getLocale() == 'ar' ? 'أ-ي':'A-Z' }}</button>
+                    @foreach ($letters as $letter)
+                        <button class="btn btn-small btn-secondary btn-glossary-filter">{{ strtoupper($letter) }}</button>
+                    @endforeach
                 </div>
 
-                <div class="col-12 col-lg-4 offset-lg-4 text-center" >
-                  <div class="input-group" id="search-group">
+                <div dir="ltr">
+                    <div class="col-12 col-lg-4 offset-lg-4 text-center" >
+                        <div class="input-group" id="search-group">
+                            <input type="text" class="form-control glossary-search-input" placeholder="Search ..." aria-label="Username" aria-describedby="glossary-search-exp-addon" id="glossary-search-exp">
 
-                    <input type="text" class="form-control glossary-search-input" placeholder="Search ..." aria-label="Username" aria-describedby="glossary-search-exp-addon" id="glossary-search-exp">
-
-                    <svg width="24" height="24" viewBox="0 0 24 24" class="glossary-search-icon">
-                      <path d="M20.71,4.04C21.1,3.65 21.1,3 20.71,2.63L18.37,0.29C18,-0.1 17.35,-0.1 16.96,0.29L15,2.25L18.75,6M17.75,7L14,3.25L4,13.25V17H7.75L17.75,7Z"></path>
-                    </svg>
-                  </div>
-
+                            <svg width="24" height="24" viewBox="0 0 24 24" class="glossary-search-icon">
+                                <path d="M20.71,4.04C21.1,3.65 21.1,3 20.71,2.63L18.37,0.29C18,-0.1 17.35,-0.1 16.96,0.29L15,2.25L18.75,6M17.75,7L14,3.25L4,13.25V17H7.75L17.75,7Z"></path>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
-              </div>
+            </div>
 
               <div class="row" id="glossary-grid">
 
                 @foreach ($letters as $letter)
 
-                    <div class="col-12 glossary-item glossary-filter_A-Z glossary-filter_{{ strtoupper($letter) }}">
+                    <div class="col-12 glossary-item glossary-filter_{{ app()->getLocale() == 'ar' ? 'أ-ي':'A-Z' }} glossary-filter_{{ strtoupper($letter) }}">
                     <h2>{{ strtoupper($letter) }}</h2>
                     </div>
 
-                    <div class="col-12 glossary-item glossary-filter_A-Z glossary-filter_{{ strtoupper($letter) }}">
+                    <div class="col-12 glossary-item glossary-filter_{{ app()->getLocale() == 'ar' ? 'أ-ي':'A-Z' }} glossary-filter_{{ strtoupper($letter) }}" dir="ltr">
                         <ul class="ch-grid">
                             @foreach ($brands as $brand)
-                                @if ( $brand->first_letter == $letter)
+                                @if ( app()->getLocale() == 'ar' ? $brand->first_ar_letter == $letter:$brand->first_letter == $letter)
                                     <li class="card-title-{{ $brand->id }}">
                                         <div class="ch-item">
                                             <div class="ch-info">
@@ -182,7 +157,7 @@ new #[Layout('layouts.front')] class extends Component
                                                 </div>
                                             </div>
                                         </div>
-                                        <p class="card-title card-front" ><span>{{ $brand->name }}</span></p>
+                                        <p class="card-title card-front" ><span>{{ app()->getLocale() == 'ar' ? $brand->ar_name:$brand->name }}</span></p>
                                     </li>
                                 @endif
                             @endforeach

@@ -432,7 +432,7 @@ new #[Layout('layouts.front')] class extends Component
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-xl-3">
+                <div class="col-lg-6 col-xl-3 final-div-mobile">
                     <div class="today-view report-item worldwide-stats">
                         <h3>{{ __('content.Medical Sector') }}</h3>
 

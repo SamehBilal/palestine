@@ -270,4 +270,5 @@ return [
     'Gallery'                                               => 'معرض الصور',
     'Donations'                                             => 'التبرعات',
     'demo2'                                                 => 'demo2-ar',
+    'Soon'                                                  => 'قريباً',
 ];

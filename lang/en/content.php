@@ -267,4 +267,5 @@ return [
     'Gallery'                                           => 'Gallery',
     'Donations'                                         => 'Donations',
     'demo2'                                             => 'demo2',
+    'Soon'                                              => 'Soon',
 ];

@@ -97,13 +97,13 @@ new #[Layout('layouts.front')] class extends Component
             <div class="cn-wrapper" id="cn-wrapper">
                 <ul>
                     <li><a href="{{ route('support.brands') }}"><span>{{ __('content.Brands') }}</span></a></li>
-                    <li><a href="#"><span>{{ __('content.Celebrities') }}</span></a></li>
-                    <li><a href="#"><span>{{ __('content.Hashtags') }}</span></a></li>
                     <li><a href="{{ route('support.barcodes') }}"><span>{{ __('content.Barcodes') }}</span></a></li>
-                    <li><a href="#"><span>{{ __('content.Encryption') }}</span></a></li>
-                    <li><a href="#"><span>{{ __('content.Gallery') }}</span></a></li>
-                    <li><a href="#"><span>{{ __('content.Donations') }}</span></a></li>
-                 </ul>
+                    <li><a href="#"><span>{{ __('content.Celebrities') }}  <br> <small class="badge badge-info">( {{ __('content.Soon') }} )</small></span></a></li>
+                    <li><a href="#"><span>{{ __('content.Hashtags') }}  <br> <small class="badge badge-info">( {{ __('content.Soon') }} )</small></span></a></li>
+                    <li><a href="#"><span>{{ __('content.Encryption') }}  <br><small class="badge badge-info">( {{ __('content.Soon') }} )</small></span></a></li>
+                    <li><a href="#"><span>{{ __('content.Gallery') }}  <br><small class="badge badge-info">( {{ __('content.Soon') }} )</small></span></a></li>
+                    <li><a href="#"><span>{{ __('content.Donations') }}  <br><small class="badge badge-info">( {{ __('content.Soon') }} )</small></span></a></li>
+                </ul>
             </div>
             <!-- End of Nav Structure -->
         </div>
