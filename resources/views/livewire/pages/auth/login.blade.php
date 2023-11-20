@@ -161,11 +161,11 @@ new #[Layout('layouts.auth')] class extends Component
                 </div>
                 <!-- end card -->
 
-                <div class="row mt-3">
+                {{-- <div class="row mt-3">
                     <div class="col-12 text-center">
                         <p class="text-muted">Don't have an account? <a href="{{ route('register') }}" class="text-muted ms-1" wire:navigate><b>{{ __('Register') }}</b></a></p>
                     </div> <!-- end col -->
-                </div>
+                </div> --}}
                 <!-- end row -->
 
             </div> <!-- end col -->

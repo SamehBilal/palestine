@@ -14,7 +14,7 @@
         <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
 
         <!-- Scripts -->
-        @vite([/* 'resources/css/app.css',  */'resources/js/app.js'])
+        @vite([/* 'resources/css/app.css',  *//* 'resources/js/app.js' */])
 
         <!-- Theme Config Js -->
         <script src="{{ asset('backend/assets/js/hyper-config.js') }}"></script>
