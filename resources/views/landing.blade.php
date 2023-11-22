@@ -15,7 +15,12 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <link rel="stylesheet" type="text/css" href="{{ asset('landing/css/demo.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('landing/css/style2.css') }}" />
+        @if (app()->getLocale() == 'ar')
+            <link rel="stylesheet" type="text/css" href="{{ asset('landing/css/style2_rtl.css') }}" />
+        @else
+            <link rel="stylesheet" type="text/css" href="{{ asset('landing/css/style2.css') }}" />
+        @endif
+
 
         <!-- Scripts -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
@@ -31,11 +36,11 @@
                 <a href="{{ route('live') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" >
                     <strong>{{ __('content.Live Tracker') }}: </strong>{{ __('content.Palestine disaster') }}
                 </a>
-                <span class="right">
+                {{-- <span class="right">
                     @if (Route::has('login'))
                         <livewire:welcome.navigation />
                     @endif
-                </span>
+                </span> --}}
                 <div class="clr"></div>
             </div>
 			<div class="sp-container">

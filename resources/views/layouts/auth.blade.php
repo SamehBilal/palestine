@@ -9,45 +9,21 @@
         <meta content="" name="description" />
         <meta content="" name="author" />
 
-        {{--
-
-    <title>{{ @$title ?? @$set->site_tagline }} - {{ @$set->site_title->$lang }}</title>
-    <link rel="shortcut icon" href="{{ @$favicon ?? url('favicon.png') }} " type="image/x-icon">
-    <link rel="canonical" href="{{ @$canonical }}">
-    <meta name="description" content="{{ strip_tags(@$description) }}" />
-    <meta name="twitter:title" content="{{ @$stitle }}" />
-    <meta name="twitter:site" content="{{ URL('') }}" />
-    <meta name="twitter:creator" content="عرب هاردوير" />
-    <meta name="twitter:description" content="{{ strip_tags(@$description) }}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="{{ @$image ? $image : url('share.png') }}" />
-    <meta name="theme-color" content="{{ $themecolor ?? '#d70a15' }}" />
-    <meta property="og:url" content="{{ @$canonical }}" />
-    <meta property="og:title" content="{{ @$stitle }}" />
-    <meta property="og:description" content="{{ strip_tags(@$description) }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ @$image ? $image : url('share.png') }}" />
-    <script type="application/ld+json">
-        {
-        "@context": "https://schema.org",
-        "@type": "Corporation",
-        "name": "Arabhardware",
-        "alternateName": "عرب هاردوير",
-        "url": "{{ url('') }}",
-        "logo": "{{url('business-assets/images/logo.svg')}}",
-        "sameAs": [
-            "{{ @$set->site_facebook }}",
-            "{{ @$set->site_twitter }}",
-            "{{ @$set->site_youtube }}",
-            "{{ @$set->site_instagram }}",
-            "{{ @$set->site_tiktok }}",
-            "{{ @$set->site_tiktok }}"
-        ]
-        }
-    </script> --}}
-
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
+        <meta name="description" content="{{ __('content.Palestine description') }}" />
+        <meta content="Non-Palestinians" name="author" />
+        <meta name="twitter:title" content="{{ __('content.Palestine Crisis') }}" />
+        <meta name="twitter:site" content="{{ url()->current() }}" />
+        <meta name="twitter:creator" content="Non-Palestinians" />
+        <meta name="twitter:description" content="{{ __('content.Palestine description') }}" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="{{ asset('assets/img/logo2.png') }}" />
+        <meta name="theme-color" content="#292833" />
+        <meta property="og:title" content="{{ __('content.Palestine Crisis') }}" />
+        <meta property="og:description" content="{{ __('content.Palestine description') }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="{{ asset('assets/img/logo2.png') }}" />
+        <!--== Favicon ==-->
+        <link rel="shortcut icon" href="{{ asset('assets/palestine_favicon.png') }}" type="image/x-icon" />
 
         <!-- Scripts -->
         @vite([/* 'resources/css/app.css',  *//* 'resources/js/app.js' */])
@@ -65,6 +41,17 @@
          <link rel="preconnect" href="https://fonts.bunny.net">
          <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+         <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "Website",
+            "name": "{{ __('content.Palestine Crisis') }}",
+            "alternateName": "{{ __('content.Palestine Crisis') }}",
+            "url": "{{ url()->current() }}",
+            "logo": "{{ asset('assets/img/logo2.png') }}",
+            }
+        </script>
+
     </head>
 
     <body class="authentication-bg" >
@@ -72,7 +59,7 @@
         {{ $slot }}
 
         <footer class="footer footer-alt">
-             <script>document.write(new Date().getFullYear())</script> © some-facts.com
+             <script>document.write(new Date().getFullYear())</script> © palestinecrises.com
         </footer>
         <!-- Vendor js -->
         <script src="{{ asset('backend/assets/js/vendor.min.js') }}"></script>
