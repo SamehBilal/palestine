@@ -2,58 +2,26 @@
 <html lang="en" dir="{{ app()->getLocale() == 'ar' ? 'rtl':'ltr' }}">
 
 <head>
-
-   {{--  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @if (@$noIndex)
-        <meta name="robots" content="noindex">
-    @endif
-    <title>{{ @$title ?? @$set->site_tagline }} - {{ @$set->site_title->$lang }}</title>
-    <link rel="shortcut icon" href="{{ @$favicon ?? url('favicon.png') }} " type="image/x-icon">
-    <link rel="canonical" href="{{ @$canonical }}">
-    <meta name="description" content="{{ strip_tags(@$description) }}" />
-    <meta name="twitter:title" content="{{ @$stitle }}" />
-    <meta name="twitter:site" content="{{ URL('') }}" />
-    <meta name="twitter:creator" content="عرب هاردوير" />
-    <meta name="twitter:description" content="{{ strip_tags(@$description) }}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="{{ @$image ? $image : url('share.png') }}" />
-    <meta name="theme-color" content="{{ $themecolor ?? '#d70a15' }}" />
-    <meta property="og:url" content="{{ @$canonical }}" />
-    <meta property="og:title" content="{{ @$stitle }}" />
-    <meta property="og:description" content="{{ strip_tags(@$description) }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ @$image ? $image : url('share.png') }}" />
-    <meta name="pgToken" content="{{ csrf_token() }}">
-    <script type="application/ld+json">
-        {
-        "@context": "https://schema.org",
-        "@type": "Corporation",
-        "name": "Arabhardware",
-        "alternateName": "عرب هاردوير",
-        "url": "{{ url('') }}",
-        "logo": "{{url('business-assets/images/logo.svg')}}",
-        "sameAs": [
-            "{{ @$set->site_facebook }}",
-            "{{ @$set->site_twitter }}",
-            "{{ @$set->site_youtube }}",
-            "{{ @$set->site_instagram }}",
-            "{{ @$set->site_tiktok }}",
-            "{{ @$set->site_tiktok }}"
-        ]
-        }
-    </script> --}}
-
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ __('content.Palestine') }}</title>
-
+    <title>{{ __('content.Palestine Crisis') }}</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="{{ __('content.Palestine description') }}" />
+    <meta content="Non-Palestinians" name="author" />
+    <meta name="twitter:title" content="{{ __('content.Palestine Crisis') }}" />
+    <meta name="twitter:site" content="{{ url()->current() }}" />
+    <meta name="twitter:creator" content="Non-Palestinians" />
+    <meta name="twitter:description" content="{{ __('content.Palestine description') }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="{{ asset('assets/img/logo2.png') }}" />
+    <meta name="theme-color" content="#292833" />
+    <meta property="og:title" content="{{ __('content.Palestine Crisis') }}" />
+    <meta property="og:description" content="{{ __('content.Palestine description') }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ asset('assets/img/logo2.png') }}" />
     <!--== Favicon ==-->
-    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('assets/palestine_favicon.png') }}" type="image/x-icon" />
 
     <!--== Google Fonts ==-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
@@ -86,6 +54,17 @@
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Website",
+        "name": "{{ __('content.Palestine Crisis') }}",
+        "alternateName": "{{ __('content.Palestine Crisis') }}",
+        "url": "{{ url()->current() }}",
+        "logo": "{{ asset('assets/img/logo2.png') }}",
+        }
+    </script>
 </head>
 
 <body class="body-dark" style="height:100vh!Important;">
@@ -233,7 +212,7 @@
             {
                 "region_name": "{{ __('content.Khan Yunis') }}",
                 "region_code": "PS-KYS",
-                "deaths": 0
+                "deaths": 12700
             },
             {
                 "region_name": "{{ __('content.Alramlah') }}",
@@ -253,17 +232,17 @@
             {
                 "region_name": "{{ __('content.Deir El Balah') }}",
                 "region_code": "PS-DEB",
-                "deaths": 0
+                "deaths": 12700
             },
             {
                 "region_name": "{{ __('content.North Gaza') }}",
                 "region_code": "PS-NGZ",
-                "deaths": 0
+                "deaths": 12700
             },
             {
                 "region_name": "{{ __('content.Rafah') }}",
                 "region_code": "PS-RFH",
-                "deaths": 0
+                "deaths": 12700
             },
         ];
 

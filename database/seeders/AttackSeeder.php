@@ -16,9 +16,9 @@ class AttackSeeder extends Seeder
         DB::table('attacks')->delete();
         $attacks = [
             //West Bank
-            [ 'total_deaths' => 183,    'women_deaths' => 0,    'children_deaths' => 0,     'elders_deaths' => 0,   'total_injuries' => 2500,   'total_displaced' => 0,         'total_destroyed_residential_units' => 0,       'other_side_deaths' => 0, 'losts' => 0,    'other_side_injuries' => 0, 'duration' => 0, 'date_of_occurance' => date('2023-11-10 22:50:00'), 'region_id' => 1],
+            [ 'total_deaths' => 218,    'women_deaths' => 0,    'children_deaths' => 0,     'elders_deaths' => 0,   'total_injuries' => 2850,   'total_displaced' => 0,         'total_destroyed_residential_units' => 0,       'other_side_deaths' => 0, 'losts' => 0,    'other_side_injuries' => 0, 'duration' => 0, 'date_of_occurance' => date('2023-11-10 22:50:00'), 'region_id' => 1],
             //Gaza
-            [ 'total_deaths' => 11025,  'women_deaths' => 3027, 'children_deaths' => 4506,  'elders_deaths' => 678, 'total_injuries' => 27000,  'total_displaced' => 1600000,   'total_destroyed_residential_units' => 270000,  'other_side_deaths' => 0, 'losts' => 2700, 'other_side_injuries' => 0, 'duration' => 0, 'date_of_occurance' => date('2023-11-10 22:50:00'), 'region_id' => 20],
+            [ 'total_deaths' => 12700,  'women_deaths' => 3250, 'children_deaths' => 5350,  'elders_deaths' => 695, 'total_injuries' => 30000,  'total_displaced' => 1600000,   'total_destroyed_residential_units' => 270000,  'other_side_deaths' => 0, 'losts' => 4500, 'other_side_injuries' => 0, 'duration' => 0, 'date_of_occurance' => date('2023-11-10 22:50:00'), 'region_id' => 20],
             //Jenin
             [ 'total_deaths' => 43,     'women_deaths' => 2,    'children_deaths' => 0,     'elders_deaths' => 0,   'total_injuries' => 34,     'total_displaced' => 0,         'total_destroyed_residential_units' => 0,       'other_side_deaths' => 0, 'losts' => 0,    'other_side_injuries' => 0, 'duration' => 0, 'date_of_occurance' => date('2023-11-10 22:50:00'), 'region_id' => 9],
             //Bethlehem

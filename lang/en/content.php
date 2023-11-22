@@ -268,4 +268,6 @@ return [
     'Donations'                                         => 'Donations',
     'demo2'                                             => 'demo2',
     'Soon'                                              => 'Soon',
+    'Palestine Crisis'                                  => 'Palestine Crisis',
+    'Palestine description'                             => 'Palestine Crisis is a website that brings you the latest news and updates, with live maps, charts, and videos that show the situation on the ground. Palestine Crisis stands with the Palestinian people and their struggle for freedom and justice. Palestine Crisis also provides historical and cultural insights, as well as stories of resistance and resilience from the Palestinian community. Palestine Crisis is your source of information and inspiration for the Palestinian cause.',
 ];
