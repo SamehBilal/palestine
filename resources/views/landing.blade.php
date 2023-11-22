@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <title>{{ __('content.Palestine') }}</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ __('content.Palestine Crisis') }}</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="description" content="{{ __('content.Palestine description') }}" />
+        <meta content="Non-Palestinians" name="author" />
+        <meta name="twitter:title" content="{{ __('content.Palestine Crisis') }}" />
+        <meta name="twitter:site" content="{{ url()->current() }}" />
+        <meta name="twitter:creator" content="Non-Palestinians" />
+        <meta name="twitter:description" content="{{ __('content.Palestine description') }}" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="{{ asset('assets/img/logo2.png') }}" />
+        <meta name="theme-color" content="#292833" />
+        <meta property="og:title" content="{{ __('content.Palestine Crisis') }}" />
+        <meta property="og:description" content="{{ __('content.Palestine description') }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="{{ asset('assets/img/logo2.png') }}" />
+        <!--== Favicon ==-->
+        <link rel="shortcut icon" href="{{ asset('assets/palestine_favicon.png') }}" type="image/x-icon" />
         <meta name="keywords" content="palestine, war, gaza" />
-        <meta name="author" content="{{ __('content.Palestine') }}" />
-        <link rel="shortcut icon" href="{{ asset('landing/favicon.ico') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -28,6 +41,17 @@
 		<!--[if lt IE 10]>
 				<link rel="stylesheet" type="text/css" href="{{ asset('landing/css/style2IE.css') }}" />
 		<![endif]-->
+
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "Website",
+            "name": "{{ __('content.Palestine Crisis') }}",
+            "alternateName": "{{ __('content.Palestine Crisis') }}",
+            "url": "{{ url()->current() }}",
+            "logo": "{{ asset('assets/img/logo2.png') }}",
+            }
+        </script>
     </head>
     <body>
         <div class="container">
