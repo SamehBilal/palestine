@@ -1,5 +1,16 @@
 <style>
-
+    .ch-img-287 {
+        background-image: url({{ asset("assets/img/brands/adidas.png") }});
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .ch-img-162 {
+        background-image: url({{ asset("assets/img/brands/7up.png") }});
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     @foreach ($brands as $brand)
 
     .ch-img-{{ $brand->id }} {

@@ -108,7 +108,11 @@ new #[Layout('layouts.front')] class extends Component
             <!-- End of Nav Structure -->
         </div>
 
+
         <section >
+            <div class="row justify-content-center help-button ">
+                <a class="text-highlight underline text-center" href="https://www.buymeacoffee.com/samehbilal" target="_blank" rel="noreferrer">{{ __('content.Help keep this website running!') }} 🙏</a>
+            </div>
 
             <div class="row">
                 <div class="col-12 text-center">

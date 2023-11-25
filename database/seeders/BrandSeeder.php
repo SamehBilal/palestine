@@ -377,7 +377,7 @@ class BrandSeeder extends Seeder
             [ 'name' => 'FABER CASTELL','ar_name' => 'فبر كاستل','logo' => 'fabercastell.png','first_ar_letter' => 'ف', 'first_letter' => 'f',  'video' => 'palestine.gif',     'alternative_id' => 40,  'made_by' => 231],
             [ 'name' => 'Abo ALWalad',  'ar_name' => 'أبو الولد','logo' => 'aboalwalad.png','first_ar_letter' => 'أ',   'first_letter' => 'a',  'video' => 'palestine.gif',     'alternative_id' => 126,  'made_by' => 231],
             [ 'name' => 'La Vache Qui Rit','ar_name' => 'البقرة الضاحكة','logo' => 'lavachequirit.png','first_ar_letter' => 'لا','first_letter' => 'l','video' => 'palestine.gif',    'alternative_id' => 126,  'made_by' => 231],
-            [ 'name' => 'Président',    'ar_name' => 'بريزيدنت','logo' => 'président.png',  'first_ar_letter' => 'ب',   'first_letter' => 'p',  'video' => 'palestine.gif',     'alternative_id' => 126,  'made_by' => 231],
+            [ 'name' => 'Président',    'ar_name' => 'بريزيدنت','logo' => 'president.png',  'first_ar_letter' => 'ب',   'first_letter' => 'p',  'video' => 'palestine.gif',     'alternative_id' => 126,  'made_by' => 231],
             [ 'name' => 'Kiri',         'ar_name' => 'كيري','logo' => 'kiri.png',           'first_ar_letter' => 'ك',   'first_letter' => 'k',  'video' => 'palestine.gif',     'alternative_id' => 95,  'made_by' => 231],
 
         ];
