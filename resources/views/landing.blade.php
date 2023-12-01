@@ -14,7 +14,6 @@
         <meta name="twitter:description" content="{{ __('content.Palestine description') }}" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="{{ asset('assets/img/logo2.png') }}" />
-        <meta name="theme-color" content="#292833" />
         <meta property="og:title" content="{{ __('content.Palestine Crisis') }}" />
         <meta property="og:description" content="{{ __('content.Palestine description') }}" />
         <meta property="og:type" content="website" />
@@ -22,6 +21,11 @@
         <!--== Favicon ==-->
         <link rel="shortcut icon" href="{{ asset('assets/palestine_favicon.png') }}" type="image/x-icon" />
         <meta name="keywords" content="palestine, war, gaza" />
+
+        <!-- PWA  -->
+        <meta name="theme-color" content="#292833" />
+        <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
+        <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -79,5 +83,14 @@
 				</div>
 			</div>
         </div>
+
+        <script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
     </body>
 </html>

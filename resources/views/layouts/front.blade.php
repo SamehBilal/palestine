@@ -15,7 +15,6 @@
     <meta name="twitter:description" content="{{ __('content.Palestine description') }}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="{{ asset('assets/img/logo2.png') }}" />
-    <meta name="theme-color" content="#292833" />
     <meta property="og:title" content="{{ __('content.Palestine Crisis') }}" />
     <meta property="og:description" content="{{ __('content.Palestine description') }}" />
     <meta property="og:type" content="website" />
@@ -25,6 +24,11 @@
 
     <!--== Google Fonts ==-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+
+    <!-- PWA  -->
+    <meta name="theme-color" content="#292833" />
+    <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
     <!-- build:css assets/css/app.min.css -->
     <!--== jqvmap Min CSS ==-->
@@ -315,6 +319,16 @@
     <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="samehbilal" data-description="Support me on Buy me a coffee!" {{-- data-message="{{ __('content.Keep this website running!') }}" --}} data-color="#00CBAD" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
     <!-- endbuild -->
     {{-- <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="samehbilal" data-color="#FFDD00" data-emoji="🙏"  data-font="Cookie" data-text="help keep this website!" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script> --}}
+
+    <script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
+
 </body>
 
 </html>
