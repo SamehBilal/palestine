@@ -62,7 +62,7 @@ new #[Layout('layouts.front')] class extends Component
                                     </div>
                                     <div class="tracker-block__content">
                                         <h4>{{ __('content.Total Deaths') }}</h4>
-                                        <h2><span class="cases-no infected">{{ number_format($live->total_deaths) }}</span> <span class="new-no">(+<span class="today_infected">2,537</span>)</span>
+                                        <h2><span class="cases-no infected">{{ number_format($live->total_deaths) }}</span> <span class="new-no">(+<span class="today_infected">1,793</span>)</span>
                                         </h2>
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@ new #[Layout('layouts.front')] class extends Component
                                     </div>
                                     <div class="tracker-block__content">
                                         <h4>{{ __('content.Total Injured') }}</h4>
-                                        <h2><span class="cases-no current_cases">{{ number_format($live->total_injuries) }}</span> <span class="new-no">(+<span class="today_injuries">10,660</span>)</span></h2>
+                                        <h2><span class="cases-no current_cases">{{ number_format($live->total_injuries) }}</span> <span class="new-no">(+<span class="today_injuries">7,446</span>)</span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@ new #[Layout('layouts.front')] class extends Component
                                     </div>
                                     <div class="tracker-block__content">
                                         <h4>{{ __('content.Total Children') }}</h4>
-                                        <h2><span class="cases-no deaths">{{ number_format($live->children_deaths) }}</span> <span class="new-no">(+<span class="today_deaths">1,055</span>)</span>
+                                        <h2><span class="cases-no deaths">{{ number_format($live->children_deaths) }}</span> <span class="new-no">(+<span class="today_deaths">1,665</span>)</span>
                                         </h2>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@ new #[Layout('layouts.front')] class extends Component
                                     <div class="tracker-block__content">
                                         <h4>{{ __('content.Total Women') }}</h4>
                                         <h2><span class="cases-no recovered">{{ number_format($live->women_deaths) }}</span> <span class="new-no">(+<span
-                                                    class="today_recovered">1,010</span>)</span>
+                                                    class="today_recovered">1,943</span>)</span>
                                         </h2>
                                     </div>
                                 </div>
@@ -153,7 +153,7 @@ new #[Layout('layouts.front')] class extends Component
                                     <div class="track-item">
                                         <p class="track-item__title">{{ __('content.Destroyed Residential Units') }}</p>
                                         <h4 class="track-item__no recovered">{{ number_format($live->total_destroyed_residential_units) }} <span class="new-no-new">(+<span
-                                            class="today_recovered">10,000</span>)</span></h4>
+                                            class="today_recovered">16,600</span>)</span></h4>
                                     </div>
                                 </div>
                             </div>

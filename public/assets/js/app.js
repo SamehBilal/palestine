@@ -590,6 +590,10 @@ const chartReport = async (selectorId) => {
         reports.push(11667);
         reports.push(12918);
         reports.push(15455);
+        reports.push(16060);
+        reports.push(18175);
+        reports.push(19754);
+        reports.push(19968);
         labels.push(`Day 1`);
         labels.push(`Day 2`);
         labels.push(`Day 3`);
@@ -621,6 +625,10 @@ const chartReport = async (selectorId) => {
         labels.push(`Day 41`);
         labels.push(`Day 45`);
         labels.push(`Day 57`);
+        labels.push(`Day 60`);
+        labels.push(`Day 66`);
+        labels.push(`Day 73`);
+        labels.push(`Day 74`);
         dates.push(new Date("October 7, 2023").toDateString());
         dates.push(new Date("October 8, 2023").toDateString());
         dates.push(new Date("October 9, 2023").toDateString());
@@ -652,7 +660,10 @@ const chartReport = async (selectorId) => {
         dates.push(new Date("November 16, 2023").toDateString());
         dates.push(new Date("November 20, 2023").toDateString());
         dates.push(new Date("December 2, 2023").toDateString());
-
+        dates.push(new Date("December 5, 2023").toDateString());
+        dates.push(new Date("December 11, 2023").toDateString());
+        dates.push(new Date("December 18, 2023").toDateString());
+        dates.push(new Date("December 19, 2023").toDateString());
         /* data.map((item, index) => {
             const value = item.Confirmed - data[index > 0 ? (index - 1) : 0].Confirmed;
             reports.push(value < 0 ? data[index - 1] : value);
@@ -747,9 +758,9 @@ const chartReport = async (selectorId) => {
  */
 const worldwidrWithPieChart = async () => {
     //const data = await getData(BASE_URL + 'v2/all');
-    const deathRate = (695 * 100) / 15207;
-    const recoveredRate = (6387 * 100) / 15207;
-    const activeCasesRate = (4257 * 100) / 15207;
+    const deathRate = (695 * 100) / 19667;
+    const recoveredRate = (8000 * 100) / 19667;
+    const activeCasesRate = (6200 * 100) / 19667;
     const percents = [{
             title: "Women "+ Math.floor(activeCasesRate) + '%',
             value: activeCasesRate

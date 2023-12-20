@@ -216,7 +216,7 @@
             {
                 "region_name": "{{ __('content.Khan Yunis') }}",
                 "region_code": "PS-KYS",
-                "deaths": 15207
+                "deaths": 19667
             },
             {
                 "region_name": "{{ __('content.Alramlah') }}",
@@ -229,24 +229,19 @@
                 "deaths": 0
             },
             {
-                "region_name": "{{ __('content.Salfit') }}",
-                "region_code": "PS-SLT",
-                "deaths": 0
-            },
-            {
                 "region_name": "{{ __('content.Deir El Balah') }}",
                 "region_code": "PS-DEB",
-                "deaths": 15207
+                "deaths": 19667
             },
             {
                 "region_name": "{{ __('content.North Gaza') }}",
                 "region_code": "PS-NGZ",
-                "deaths": 15207
+                "deaths": 19667
             },
             {
                 "region_name": "{{ __('content.Rafah') }}",
                 "region_code": "PS-RFH",
-                "deaths": 15207
+                "deaths": 19667
             },
         ];
 
