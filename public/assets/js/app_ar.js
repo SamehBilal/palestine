@@ -717,7 +717,7 @@ const chartReport = async (selectorId) => {
                     yPadding: 10,
                     callbacks: {
                         title: function (tooltipItems) {
-                            return "اليوم - " + (Number(tooltipItems[0].index) + 1) + ", " + dates[Number(tooltipItems[0].index)];
+                            return "اليوم - " + labels[Number(tooltipItems[0].index)] + ", " + dates[Number(tooltipItems[0].index)];
                         },
                         label: function (tooltipItem) {
                             return "الوفيات: " + Number(tooltipItem.yLabel) + "+";

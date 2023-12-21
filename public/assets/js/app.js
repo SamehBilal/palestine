@@ -710,7 +710,7 @@ const chartReport = async (selectorId) => {
                     yPadding: 10,
                     callbacks: {
                         title: function (tooltipItems) {
-                            return "Day - " + (Number(tooltipItems[0].index) + 1) + ", " + dates[Number(tooltipItems[0].index)];
+                            return "Day - " + labels[Number(tooltipItems[0].index)] + ", " + dates[Number(tooltipItems[0].index)];
                         },
                         label: function (tooltipItem) {
                             return "Deaths: " + Number(tooltipItem.yLabel) + "+";
