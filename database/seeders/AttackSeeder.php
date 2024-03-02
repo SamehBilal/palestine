@@ -18,7 +18,7 @@ class AttackSeeder extends Seeder
             //West Bank
             [ 'total_deaths' => 301,    'women_deaths' => 3,    'children_deaths' => 70,     'elders_deaths' => 4,   'total_injuries' => 2860,   'total_displaced' => 1014,         'total_destroyed_residential_units' => 0,       'other_side_deaths' => 0, 'losts' => 0,    'other_side_injuries' => 0, 'duration' => 0, 'date_of_occurance' => date('2023-11-10 22:50:00'), 'region_id' => 1],
             //Gaza
-            [ 'total_deaths' => 19453,  'women_deaths' => 6200, 'children_deaths' => 8000,  'elders_deaths' => 695, 'total_injuries' => 52586,  'total_displaced' => 1800000,   'total_destroyed_residential_units' => 306600,  'other_side_deaths' => 0, 'losts' => 7500, 'other_side_injuries' => 0, 'duration' => 0, 'date_of_occurance' => date('2023-11-10 22:50:00'), 'region_id' => 20],
+            [ 'total_deaths' => 29195,  'women_deaths' => 8570, 'children_deaths' => 12660,  'elders_deaths' => 695, 'total_injuries' => 69170,  'total_displaced' => 2000000,   'total_destroyed_residential_units' => 306600,  'other_side_deaths' => 0, 'losts' => 9000, 'other_side_injuries' => 0, 'duration' => 0, 'date_of_occurance' => date('2023-11-10 22:50:00'), 'region_id' => 20],
             //Jenin
             [ 'total_deaths' => 76,     'women_deaths' => 2,    'children_deaths' => 9,     'elders_deaths' => 0,   'total_injuries' => 78,     'total_displaced' => 0,         'total_destroyed_residential_units' => 0,       'other_side_deaths' => 0, 'losts' => 0,    'other_side_injuries' => 0, 'duration' => 0, 'date_of_occurance' => date('2023-11-10 22:50:00'), 'region_id' => 9],
             //Bethlehem

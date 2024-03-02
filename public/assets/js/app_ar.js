@@ -600,6 +600,7 @@ const chartReport = async (selectorId) => {
         reports.push(18175);
         reports.push(19754);
         reports.push(19968);
+        reports.push(29496);
         labels.push(`اليوم 1`);
         labels.push(`اليوم 2`);
         labels.push(`اليوم 3`);
@@ -635,6 +636,7 @@ const chartReport = async (selectorId) => {
         labels.push(`اليوم 66`);
         labels.push(`اليوم 73`);
         labels.push(`اليوم 74`);
+        labels.push(`اليوم 136`);
         dates.push(new Date("October 7, 2023").toDateString());
         dates.push(new Date("October 8, 2023").toDateString());
         dates.push(new Date("October 9, 2023").toDateString());
@@ -670,6 +672,7 @@ const chartReport = async (selectorId) => {
         dates.push(new Date("December 11, 2023").toDateString());
         dates.push(new Date("December 18, 2023").toDateString());
         dates.push(new Date("December 19, 2023").toDateString());
+        dates.push(new Date("February 19, 2024").toDateString());
 
         /* data.map((item, index) => {
             const value = item.Confirmed - data[index > 0 ? (index - 1) : 0].Confirmed;
@@ -765,9 +768,9 @@ const chartReport = async (selectorId) => {
  */
 const worldwidrWithPieChart = async () => {
     //const data = await getData(BASE_URL + 'v2/all');
-    const deathRate = (695 * 100) / 19667;
-    const recoveredRate = (8000 * 100) / 19667;
-    const activeCasesRate = (6200 * 100) / 19667;
+    const deathRate = (695 * 100) / 29195;
+    const recoveredRate = (12660 * 100) / 29195;
+    const activeCasesRate = (8570 * 100) / 29195;
     const percents = [{
             title: "النساء "+ Math.floor(activeCasesRate) + '%',
             value: activeCasesRate
